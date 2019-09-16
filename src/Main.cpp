@@ -4,7 +4,9 @@ int main()
 {
 	std::cout << "Hello World!" << std::endl;
 
-	sf::RenderWindow window(sf::VideoMode(1024, 1024), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar);
+	sf::RenderWindow window(sf::VideoMode(1024, 2048), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar);
+	sf::RectangleShape player(sf::Vector2f(200,200));
+	player.setFillColor(sf::Color::Magenta);
 
 #ifdef SFML_SYSTEM_WINDOWS
 	__windowsHelper.setIcon(window.getSystemHandle());
@@ -25,10 +27,14 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			else if (event.type == sf::Event::TextEntered) {
+				if (event.text.unicode < 128)
+					printf("%c\n", event.text.unicode);
+			}
 		}
 
 		window.clear();
-		window.draw(shape);
+		window.draw(player);
 		window.display();
 	}
 

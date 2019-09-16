@@ -1,11 +1,7 @@
 #ifndef CHICKENORTHEEGG_GAMEOBJECTS_H
 #define CHICKENORTHEEGG_GAMEOBJECTS_H
 
-struct Position
-{
-	int m_x;
-	int m_y;
-};
+#include "Position.h"
 
 class GameObject
 {
