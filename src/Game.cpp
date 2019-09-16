@@ -37,6 +37,23 @@ void Game::play()
 					printf("%c\n", event.text.unicode);
 			}
 		}
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+        {
+            player.move(-0.1f, 0.0f);
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+        {
+            player.move(0.0f, 0.1f);
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+        {
+            player.move(0.1f, 0.0f);
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+        {
+            player.move(0.0f, -0.1f);
+        }
 		m_window.clear();
 		m_window.draw(player);
 		m_window.display();
