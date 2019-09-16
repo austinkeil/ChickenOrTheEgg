@@ -18,5 +18,3 @@ private:
 };
 
 #endif //ACTORS_INCLUDED
-
-//hey
