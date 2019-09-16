@@ -14,7 +14,6 @@ class Bomb: public GameObject{
     void setDamage();
     void setTime();
 
-}
+};
 
 #endif
-

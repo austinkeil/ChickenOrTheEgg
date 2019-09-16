@@ -3,7 +3,7 @@
 
 #include "Actors.h"
 
-class Player: public Actors{
+class Player: public Actor{
 public:
   Player();
 
