@@ -5,7 +5,9 @@
 
 using namespace std;
 
-Game::Game(int width, int height) : m_window(sf::VideoMode(height, width), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar)
+Game::Game(int width, int height)
+    : m_window(sf::VideoMode(height, width), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar),
+    m_player(sf::Vector2f(200,200))
 {
     std::cout << "Game Started!" << std::endl;
     m_level = 0;

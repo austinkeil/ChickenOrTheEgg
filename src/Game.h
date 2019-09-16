@@ -2,6 +2,7 @@
 #define GAME_INCLUDED
 
 #include <string>
+#include "Actors.h"
 
 class Game
 {
@@ -12,6 +13,7 @@ public:
 private:
     int m_level;
     sf::RenderWindow m_window;
+    Actor *player;
 };
 
 #endif // GAME_INCLUDED
