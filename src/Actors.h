@@ -13,7 +13,6 @@ public:
 
 private:
 	Position mypos;
-
 };
 
 #endif //ACTORS_INCLUDED
