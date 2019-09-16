@@ -6,16 +6,31 @@
 class GameObject
 {
 public:
-    GameObject(std::string name, int x, int y);
+    GameObject(std::string name, int x, int y);//use pos struct
     std::string m_getName();
+    bool isDestruct() = 0;
+
+    getIsDestruct();
 private:
     std::string m_name;
+    bool isDestruct;
 };
 
 class WallBlock : public GameObject
 {
+    const bool isDestruct = false; 
 public:
-private:
+    WallBlock();
+    bool isDestruct() const;
+
+};
+class DestructWall : public GameObject{
+    const bool isDestruct = true;
+public:
+DestructWall();
+bool isDestruct() const;
+
+
 };
 
 #endif //CHICKENORTHEEGG_GAMEOBJECTS_H
