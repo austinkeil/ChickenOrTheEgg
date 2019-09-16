@@ -14,9 +14,6 @@ private:
 	//position
 	int m_x;
 	int m_y;
-;
-
-
-}
+};
 
 #endif //ACTORS_INCLUDED
