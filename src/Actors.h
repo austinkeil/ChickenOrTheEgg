@@ -8,17 +8,12 @@
 class Actors
 {
 public:
-	
+	Actors(int x, int y);
 
 private:
-	
+	Position mypos;
 	
 };
 
 #endif //ACTORS_INCLUDED
 
-//hey
-
-//hello
-
-//hi
