@@ -16,4 +16,3 @@ private:
 };
 
 #endif //ACTORS_INCLUDED
-
