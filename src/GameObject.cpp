@@ -4,6 +4,7 @@
 #include "rand.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 GameObject::GameObject(){}
 GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w)
 : m_window(w)
@@ -11,6 +12,10 @@ GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w)
 GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : m_window(w), m_powerUps(pups)
 >>>>>>> 55c2895eeb5c466fa6d2f3c84c3a7c76360c75dc
+=======
+GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: m_window(w), m_powerUps(pups)
+>>>>>>> 6a07d42fcf0fd63a491985311d1b99412c9383ef
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
