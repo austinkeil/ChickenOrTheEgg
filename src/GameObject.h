@@ -15,8 +15,10 @@ private:
 class WallBlock : public GameObject
 {
     const bool isDestruct = false;
+
 public:
     WallBlock();
+    ~WallBlock();
     // bool isDestruct() const;
 
 };
@@ -24,6 +26,7 @@ class DestructWall : public GameObject{
     const bool isDestruct = true;
 public:
 DestructWall();
+~DestructWall();
 // bool isDestruct() const;
 
 
