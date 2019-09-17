@@ -6,13 +6,14 @@
 class GameObject
 {
 public:
-    GameObject(std::string name, int x, int y);//use pos struct
-    std::string m_getName();
+    GameObject(std::string name, int x, int y, sf::RenderWindow &w);
     Position objectPos;
-
+    void drawMe();
+    std::string getName();
 private:
     std::string m_name;
-
+    sf::RectangleShape m_playerShape;
+    sf::RenderWindow &m_window;
 };
 
 class WallBlock : public GameObject
@@ -35,10 +36,10 @@ DestructWall();
 // bool isDestruct() const;
 };
 
-class Worms : public GameObject
+class Worm : public GameObject
 {  // worms are the power ups
 public:
-    Worms(std::string name, int x, int y);
+    Worm(std::string name, int x, int y, sf::RenderWindow &w);
 private:
 };
 

@@ -1,7 +1,8 @@
 #include "Actor.h"
 #include "rand.h"
 
-Actor::Actor(float x, float y, float size) : m_playerShape(sf::Vector2f(size, size))
+Actor::Actor(float x, float y, float size, sf::RenderWindow &w)
+: m_playerShape(sf::Vector2f(size, size)), m_window(w)
 {
 	mypos.m_x = x;
 	mypos.m_y = y;
@@ -15,19 +16,21 @@ sf::RectangleShape &Actor::getShape() {
 	return m_playerShape;
 }
 
+void Actor::drawMe() {
+	m_window.draw(m_playerShape);
+}
 void Actor::move(float x_dist, float y_dist) {
 	m_playerShape.move(x_dist, y_dist);
 }
 
 void Actor::setTexture(std::string texturePath) {
-	sf::Texture shapeTexture;
-	if (!shapeTexture.loadFromFile(texturePath)) {
+	if (!m_shapeTexture.loadFromFile(texturePath)) {
 		std::cout << "Failed to load texture from " << texturePath << std::endl;
 	}
-	m_playerShape.setTexture(&shapeTexture);
+	m_playerShape.setTexture(&m_shapeTexture);
 }
 
-Player::Player(float x, float y, float size) : Actor(x, y, size)
+Player::Player(float x, float y, float size, sf::RenderWindow &w) : Actor(x, y, size, w)
 {
 	m_power = randInt(3);
 }

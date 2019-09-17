@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-const int PLAYERSIZE = 100;
+const int PLAYERSIZE = 300;
 using namespace std;
 
 Game::Game(int width, int height)
@@ -14,8 +14,9 @@ Game::Game(int width, int height)
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
 
-    m_player = new Player(0,0,PLAYERSIZE);
-    m_player->setTexture("content/sfml.png");
+    m_player = new Player(0,0,PLAYERSIZE, m_window);
+    cout << "Calling setTexture" << endl;
+    m_player->setTexture("content/chicken.png");
 }
 
 void Game::play()
