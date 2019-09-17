@@ -6,7 +6,7 @@
 class Actor
 {
 public:
-	Actor(int x, int y, int size);
+	Actor(float x, float y, float size);
 	void move(float x_dist, float y_dist);
 	void setColor(sf::Color color);
 	void setTexture(std::string texturePath);
@@ -22,7 +22,7 @@ private:
 class Player : public Actor
 {
 public:
-	Player(int x, int y, int size);
+	Player(float x, float y, float size);
 private:
 };
 
