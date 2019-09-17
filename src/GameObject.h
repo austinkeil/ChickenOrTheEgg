@@ -1,6 +1,6 @@
 #ifndef CHICKENORTHEEGG_GAMEOBJECTS_H
 #define CHICKENORTHEEGG_GAMEOBJECTS_H
-
+#include <string>
 #include "Position.h"
 
 class GameObject
