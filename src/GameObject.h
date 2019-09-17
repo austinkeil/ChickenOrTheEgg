@@ -11,6 +11,7 @@ public:
 private:
     std::string m_name;
     bool isDestruct;
+    Position objectPos;
 };
 
 class WallBlock : public GameObject
@@ -21,14 +22,30 @@ public:
     // bool isDestruct() const;
 
 };
-class DestructWall : public GameObject{
+
+class DestructWall : public GameObject
+{
     const bool isDestruct = true;
 public:
 DestructWall();
 // bool isDestruct() const;
-
-
 };
 
+class Worms : public GameObject
+{  // worms are the power ups
+public:
+    Worms(std::string name, int x, int y);  
+private:
+}
+
+
+/*
+class Grains : public GameObject
+{
+public:
+
+private:
+}
+*/
 
 #endif //CHICKENORTHEEGG_GAMEOBJECTS_H

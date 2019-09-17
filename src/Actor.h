@@ -2,6 +2,7 @@
 #define ACTORS_INCLUDED
 
 #include "Position.h"
+#include "rand.h"
 
 class Actor
 {
@@ -23,7 +24,11 @@ class Player : public Actor
 {
 public:
 	Player(float x, float y, float size);
+	void dispPower();
+	void addhitpoints();
 private:
+	int hitpoints = 1;
+	int m_power;
 };
 
 #endif //ACTORS_INCLUDED
