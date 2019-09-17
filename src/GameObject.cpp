@@ -17,7 +17,7 @@ string GameObject::m_getName()
 
 ////////////////
 
- Worms::Worms(string name, int x, int y)
+ Worms::Worms(std::string name, int x, int y)
     :GameObject(name, x, y) {}
 
 

@@ -8,10 +8,12 @@ class GameObject
 public:
     GameObject(std::string name, int x, int y);//use pos struct
     std::string m_getName();
+    Position objectPos;
+
 private:
     std::string m_name;
 
-    Position objectPos;
+    
 
 };
 
@@ -52,4 +54,5 @@ private:
 }
 */
 
-#endif //CHICKENORTHEEGG_GAMEOBJECTS_H
+
+#endif //CHICKENORTHEEGG_GAMEOBJECTS_H 

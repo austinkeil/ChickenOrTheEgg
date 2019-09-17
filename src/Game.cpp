@@ -1,5 +1,6 @@
 
 #include "Game.h"
+#include "rand.h"
 #include <iostream>
 #include <string>
 
@@ -11,9 +12,7 @@ Game::Game(int width, int height)
 {
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
-#ifdef SFML_SYSTEM_WINDOWS
-	__windowsHelper.setIcon(window.getSystemHandle());
-#endif
+
 
     m_player = new Player(0,0,PLAYERSIZE);
     m_player->setTexture("content/sfml.png");
@@ -56,9 +55,28 @@ void Game::play()
 		m_window.display();
 	}
 }
-
-void Game::drawGameBoard()
+//as of 10am, not fully implemented. Need enemy vector
+void Game::drawGameBoardOne()
 {
+  int playerSpawn = randInt(4);
+
+  switch (playerSpawn) {
+    case 0:
+      m_player->setPos(1,1);
+      break;
+    case 1:
+      m_player->setPos(14,1);
+      break;
+    case 2:
+      m_player->setPos(1,14);
+      break;
+    case 3:
+      m_player->setPos(14,14);
+      break;
+    default:
+      break;
+      //cry
+    }
 
 }
 
