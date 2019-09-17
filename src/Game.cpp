@@ -56,3 +56,38 @@ void Game::play()
 		m_window.display();
 	}
 }
+
+void Game::drawGameBoard()
+{
+
+}
+
+std::vector<GameObject*> Game::getObjects()
+{
+  return m_objects;
+}
+
+int Game::getLevel()
+{
+  return m_level;
+}
+
+Player* Game::getPlayer()
+{
+  return m_player;
+}
+
+void Game::setObjects(std::vector<GameObject*> objects)
+{
+  m_objects = objects;
+}
+
+void Game::setLevel(int lvl)
+{
+  m_level = lvl;
+}
+
+void Game::setPlayer(Player* player)
+{
+  m_player = player;
+}

@@ -10,15 +10,13 @@ class Bomb: public GameObject{
     int getDamage() const;
     int getTime() const;
 
-<<<<<<< HEAD
     void setRange(int x);//setters
     void setDamage(int x);
     void setTime(int x);
-=======
     // void setRange();//setters
     // void setDamage();
     // void setTime();
->>>>>>> 7c9c45c2cf8362458766bce377c3e759f0d349e8
+
 
 };
 
