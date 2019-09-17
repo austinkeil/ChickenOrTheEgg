@@ -5,6 +5,8 @@
 
 class Player: public Actors{
 public:
+  Player();
+  
   void setHitpoints(int hp);
   int getHitpoints();
 private:
