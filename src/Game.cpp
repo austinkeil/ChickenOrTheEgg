@@ -13,14 +13,6 @@ Game::Game(int width, int height)
 {
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> ec013e75f1a776f7eb3909e6c96a13fc4fcec7a0
->>>>>>> 08b8ea9dd27d5daf5f55ca18e19828c6c56b9b4e
 
     m_player = new Player(0,0,PLAYERSIZE);
     m_player->setTexture("content/sfml.png");

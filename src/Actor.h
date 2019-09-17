@@ -32,7 +32,7 @@ public:
 private:
 	int hitpoints = 1;
 	int m_power;
-	std::vector<Bomb*> eggs;
+	std::vector<Bomb> eggs;
 };
 
 #endif //ACTORS_INCLUDED

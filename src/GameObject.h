@@ -13,8 +13,6 @@ public:
 private:
     std::string m_name;
 
-    
-
 };
 
 class WallBlock : public GameObject
@@ -23,7 +21,6 @@ class WallBlock : public GameObject
 
 public:
     WallBlock();
-    ~WallBlock();
     // bool isDestruct() const;
 
 };
@@ -34,6 +31,7 @@ class DestructWall : public GameObject
 public:
 DestructWall();
 ~DestructWall();
+
 // bool isDestruct() const;
 };
 
@@ -55,4 +53,4 @@ private:
 */
 
 
-#endif //CHICKENORTHEEGG_GAMEOBJECTS_H 
+#endif //CHICKENORTHEEGG_GAMEOBJECTS_H
