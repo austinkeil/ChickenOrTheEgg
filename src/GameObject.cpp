@@ -3,6 +3,7 @@
 #include <string>
 #include "rand.h"
 
+GameObject::GameObject(){}
 GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w)
 : m_window(w)
 {
@@ -28,6 +29,7 @@ DestructWall::~DestructWall()
     {
 
         //make the power up appear
+
     }
     else
     {

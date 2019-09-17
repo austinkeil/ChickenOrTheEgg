@@ -11,7 +11,7 @@ public:
     void drawMe();
     std::string getName();
 private:
-    std::string m_name;
+    std::string m_name = "";
     sf::RectangleShape m_playerShape;
     sf::RenderWindow &m_window;
 };

@@ -57,7 +57,7 @@ void Game::play()
 	}
 }
 //as of 10am, not fully implemented. Need enemy vector
-void Game::drawGameBoardOne()
+void Game::drawGameBoardOne(sf::RenderWindow &w,std::vector<GameObject*> getBreakable();)
 {
   int playerSpawn = randInt(4);
 
