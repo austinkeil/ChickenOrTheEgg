@@ -26,11 +26,9 @@ public:
     // bool isDestruct() const;
 
 };
-
 class DestructWall : public GameObject
 {
     const bool isDestruct = true;
-    Worm w;
 public:
 DestructWall(std::string name, int x, int y, sf::RenderWindow &w);
 ~DestructWall();
@@ -44,7 +42,7 @@ public:
     Worm();
     Worm(std::string name, int x, int y, sf::RenderWindow &w);
 private:
-    int point;
+    int point =100;
 
 };
 

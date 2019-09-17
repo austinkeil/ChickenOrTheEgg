@@ -18,8 +18,7 @@ std::string GameObject::getName() {
 	return m_name;
 }
 DestructWall::DestructWall(std::string name, int x, int y, sf::RenderWindow &w):
-GameObject(name = "Destructed Wall",x,y,w){
-
+GameObject(name,x,y,w){
 }
 DestructWall::~DestructWall()
 {
@@ -27,6 +26,7 @@ DestructWall::~DestructWall()
     int power_up = randInt(3) ;
     if(power_up==0)
     {
+
         //make the power up appear
     }
     else
@@ -39,7 +39,8 @@ DestructWall::~DestructWall()
 ////////////////
 
  Worm::Worm(std::string name, int x, int y, sf::RenderWindow &w)
-    :GameObject(name, x, y, w) {}
+    :GameObject(name, x, y, w) {
+    }
 
 
 
