@@ -10,8 +10,9 @@ public:
     std::string m_getName();
 private:
     std::string m_name;
-    bool isDestruct;
+
     Position objectPos;
+
 };
 
 class WallBlock : public GameObject
