@@ -3,6 +3,8 @@
 
 #include "Position.h"
 #include "rand.h"
+#include "Bomb.h"
+#include "GameObject.h"
 
 class Actor
 {
@@ -29,6 +31,7 @@ public:
 private:
 	int hitpoints = 1;
 	int m_power;
+	vector<Bomb> eggs(10);
 };
 
 #endif //ACTORS_INCLUDED
