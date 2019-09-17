@@ -20,8 +20,8 @@ void GameObject::drawMe() {
 std::string GameObject::getName() {
 	return m_name;
 }
-DestructWall::DestructWall(std::string name, int x, int y, sf::RenderWindow &w):
-GameObject(name,x,y,w){
+DestructWall::DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: GameObject(name,x,y,w, pups){
 }
 DestructWall::~DestructWall()
 {
