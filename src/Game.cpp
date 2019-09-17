@@ -12,9 +12,7 @@ Game::Game(int width, int height)
 {
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
-#ifdef SFML_SYSTEM_WINDOWS
-	__windowsHelper.setIcon(window.getSystemHandle());
-#endif
+
 
     m_player = new Player(0,0,PLAYERSIZE);
     m_player->setTexture("content/sfml.png");
