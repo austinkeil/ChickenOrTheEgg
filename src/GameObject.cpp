@@ -17,6 +17,10 @@ void GameObject::drawMe() {
 std::string GameObject::getName() {
 	return m_name;
 }
+DestructWall::DestructWall(std::string name, int x, int y, sf::RenderWindow &w):
+GameObject(name = "Destructed Wall",x,y,w){
+
+}
 DestructWall::~DestructWall()
 {
     // randomly decide whether a power up will appear or not

@@ -20,6 +20,7 @@ class WallBlock : public GameObject
 {
     const bool isDestruct = false;
 
+
 public:
     WallBlock();
     // bool isDestruct() const;
@@ -29,8 +30,9 @@ public:
 class DestructWall : public GameObject
 {
     const bool isDestruct = true;
+    Worm w;
 public:
-DestructWall();
+DestructWall(std::string name, int x, int y, sf::RenderWindow &w);
 ~DestructWall();
 
 // bool isDestruct() const;
@@ -39,8 +41,11 @@ DestructWall();
 class Worm : public GameObject
 {  // worms are the power ups
 public:
+    Worm();
     Worm(std::string name, int x, int y, sf::RenderWindow &w);
 private:
+    int point;
+
 };
 
 
