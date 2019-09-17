@@ -93,11 +93,6 @@ void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
         //getUnbreakable()[i]->setPos(i,j);
       }
     }
-
-
-
-
-
 }
 
 std::vector<GameObject*> Game::getBreakable()
