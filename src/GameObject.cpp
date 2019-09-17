@@ -3,11 +3,19 @@
 #include <string>
 #include "rand.h"
 
-GameObject::GameObject(std::string name, int x, int y)
+GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w)
+: m_window(w)
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
-    m_name = name;
+	m_name = name;
+}
+
+void GameObject::drawMe() {
+	m_window.draw(m_playerShape);
+}
+std::string GameObject::getName() {
+	return m_name;
 }
 DestructWall::~DestructWall()
 {
@@ -24,15 +32,10 @@ DestructWall::~DestructWall()
 
 }
 
-std::string GameObject::m_getName()
-{
-    return m_name;
-}
-
 ////////////////
 
- Worms::Worms(std::string name, int x, int y)
-    :GameObject(name, x, y) {}
+ Worm::Worm(std::string name, int x, int y, sf::RenderWindow &w)
+    :GameObject(name, x, y, w) {}
 
 
 
