@@ -14,6 +14,7 @@ public:
 	void setColor(sf::Color color);
 	void setTexture(std::string texturePath);
 	sf::RectangleShape &getShape();
+	virtual void setPos(float x, float y);
 	// virtual void spawn(); // randomly places actors
 
 private:

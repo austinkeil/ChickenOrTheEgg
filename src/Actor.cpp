@@ -55,3 +55,8 @@ void Player :: addhitpoints()
 {
 	hitpoints+=1;
 }
+void Actor::setPos(float x, float y)
+{
+	mypos.m_x = x;
+	mypos.m_y = y;
+}
