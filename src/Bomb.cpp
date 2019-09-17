@@ -19,21 +19,3 @@ void Bomb::setDamage(int x){
 void Bomb::setTime(int x){
         time = x;
     }
-
-void Bomb::setRange(int x){
-    range = x;
-    }
-
-void Bomb::setDamage(int x){
-        damage = x;
-    }
-
-void Bomb::setRange(int x){
-    range = x;
-    }
-void Bomb::setDamage(int x){
-        damage = x;
-    }
-void Bomb::setTime(int x){
-        time = x;
-    }
