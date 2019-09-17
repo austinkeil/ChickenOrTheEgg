@@ -6,7 +6,7 @@
 class Monster : public Actor
 {
 public:
-	Monster(float x, float y, float size);
+	Monster(float x, float y, float size, sf::RenderWindow &w);
 private:
 };
 

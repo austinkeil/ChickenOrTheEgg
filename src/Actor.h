@@ -9,24 +9,26 @@
 class Actor
 {
 public:
-	Actor(float x, float y, float size);
+	Actor(float x, float y, float size, sf::RenderWindow &w);
 	void move(float x_dist, float y_dist);
 	void setColor(sf::Color color);
 	void setTexture(std::string texturePath);
 	sf::RectangleShape &getShape();
 	virtual void setPos(float x, float y);
+	void drawMe();
 	// virtual void spawn(); // randomly places actors
 
 private:
 	Position mypos;
 	sf::RectangleShape m_playerShape;
-	sf::Texture m_playerTexture;
+	sf::Texture m_shapeTexture;
+	sf::RenderWindow &m_window;
 };
 
 class Player : public Actor
 {
 public:
-	Player(float x, float y, float size);
+	Player(float x, float y, float size, sf::RenderWindow &w);
 	void dispPower();
 	void addhitpoints();
 private:
