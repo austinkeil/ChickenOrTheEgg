@@ -11,7 +11,7 @@ int Bomb::getTime() const{
 }
 void Bomb::setRange(int x){
     range = x;
-    }
+    }it
 void Bomb::setDamage(int x){
         damage = x;
     }
