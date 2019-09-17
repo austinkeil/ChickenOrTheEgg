@@ -34,9 +34,9 @@ DestructWall();
 class Worms : public GameObject
 {  // worms are the power ups
 public:
-    Worms(std::string name, int x, int y);  
+    Worms(std::string name, int x, int y);
 private:
-}
+};
 
 
 /*

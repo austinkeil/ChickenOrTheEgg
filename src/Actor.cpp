@@ -35,16 +35,20 @@ Player::Player(float x, float y, float size) : Actor(x, y, size)
 void Player::dispPower()
 {
 	switch (m_power)  // depending on which power is chosen, it could call a function that will change something about the game
-    
+
      {
          case 0:
 			addhitpoints();
+			break;
          case 1:
+		 	break;
          //increase bomb range: this depends on what the bomb range is orignally (check bomb class) and increase it
          case 2:
+		 	break;
          //drop eggs in shorter intervals: do we have something for dropping eggs at certain intervals currently?  if so then decrease that interval
-
-     }
+		default:
+			break;
+	 }
 }
 
 void Player :: addhitpoints()
