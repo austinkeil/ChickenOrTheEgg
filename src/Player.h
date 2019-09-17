@@ -3,7 +3,7 @@
 
 #include "Actors.h"
 
-class Player{
+class Player: public Actors{
 public:
   void setHitpoints(int hp);
   int getHitpoints();
