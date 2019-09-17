@@ -44,8 +44,10 @@ void Player::dispPower()
 		 	break;
          //increase bomb range: this depends on what the bomb range is orignally (check bomb class) and increase it
          case 2:
-		 	break;
-         //drop eggs in shorter intervals: do we have something for dropping eggs at certain intervals currently?  if so then decrease that interval
+		 	//int myrange = eggs.getRange();
+		 	//eggs.setRange(myrange + 1);
+			 break;
+
 		default:
 			break;
 	 }
