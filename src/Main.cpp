@@ -4,7 +4,7 @@ int main()
 {
 	std::cout << "Hello World!" << std::endl;
 
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
 #ifdef SFML_SYSTEM_WINDOWS
 	__windowsHelper.setIcon(window.getSystemHandle());
 #endif
