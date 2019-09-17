@@ -11,6 +11,7 @@ public:
     Position objectPos;
     void drawMe();
     std::string getName();
+    void iteratePowerUps();
 private:
     std::string m_name;
     sf::RectangleShape m_playerShape;
@@ -31,7 +32,7 @@ public:
 };
 class DestructWall : public GameObject
 {
-    const bool isDestruct = true;
+    // const bool isDestruct = true;
 public:
 DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
 ~DestructWall();
@@ -44,7 +45,7 @@ class Worm : public GameObject
 public:
     Worm(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
 private:
-    int point =100;
+    // int point =100;
 
 };
 

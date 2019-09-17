@@ -8,7 +8,7 @@ GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std:
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
-	  m_name = name;
+	m_name = name;
 }
 
 WallBlock::WallBlock(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
