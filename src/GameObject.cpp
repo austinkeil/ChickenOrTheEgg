@@ -11,6 +11,16 @@ GameObject::GameObject(std::string name, int x, int y)
 }
 DestructWall::~DestructWall()
 {
+    // randomly decide whether a power up will appear or not
+    int power_up = randInt(3) ;
+    if(power_up==0)
+    {
+        //make the power up appear
+    }
+    else
+    {
+        //do nothing
+    }
 
 }
 
