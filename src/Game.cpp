@@ -1,6 +1,7 @@
 
 #include "Game.h"
 #include "rand.h"
+#include "GameObject.h"
 #include <iostream>
 #include <string>
 
@@ -12,7 +13,14 @@ Game::Game(int width, int height)
 {
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec013e75f1a776f7eb3909e6c96a13fc4fcec7a0
+>>>>>>> 08b8ea9dd27d5daf5f55ca18e19828c6c56b9b4e
 
     m_player = new Player(0,0,PLAYERSIZE);
     m_player->setTexture("content/sfml.png");
@@ -77,12 +85,34 @@ void Game::drawGameBoardOne()
       break;
       //cry
     }
+    for(int i = 0; i < 36; i++)
+    {
+      //WallBlock constructor needs to be implemented !!!!
+      //getUnbreakable()[i] = new WallBlock();
+    }
+
+    for(int i = 1; i < 15; i+=2)
+    {
+      for(int j = 1; j < 15; j+=2)
+      {
+        //getUnbreakable()[i].setPos(i,j);
+      }
+    }
+
+
+
+
 
 }
 
-std::vector<GameObject*> Game::getObjects()
+std::vector<GameObject*> Game::getBreakable()
 {
-  return m_objects;
+  return m_breakable;
+}
+
+std::vector<GameObject*> Game::getUnbreakable()
+{
+  return m_unbreakable;
 }
 
 int Game::getLevel()
@@ -95,9 +125,14 @@ Player* Game::getPlayer()
   return m_player;
 }
 
-void Game::setObjects(std::vector<GameObject*> objects)
+void Game::setBreakable(std::vector<GameObject*> objects)
 {
-  m_objects = objects;
+  m_breakable = objects;
+}
+
+void Game::setUnbreakable(std::vector<GameObject*> objects)
+{
+  m_unbreakable = objects;
 }
 
 void Game::setLevel(int lvl)
