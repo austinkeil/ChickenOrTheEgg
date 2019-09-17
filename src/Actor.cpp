@@ -20,7 +20,9 @@ void Actor::move(float x_dist, float y_dist) {
 
 void Actor::setTexture(std::string texturePath) {
 	sf::Texture shapeTexture;
-	shapeTexture.loadFromFile(texturePath);
+	if (!shapeTexture.loadFromFile(texturePath)) {
+		std::cout << "Failed to load texture from " << texturePath << std::endl;
+	}
 	m_playerShape.setTexture(&shapeTexture);
 }
 
