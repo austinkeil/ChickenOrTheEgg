@@ -18,14 +18,14 @@ class WallBlock : public GameObject
     const bool isDestruct = false;
 public:
     WallBlock();
-    bool isDestruct() const;
+    // bool isDestruct() const;
 
 };
 class DestructWall : public GameObject{
     const bool isDestruct = true;
 public:
 DestructWall();
-bool isDestruct() const;
+// bool isDestruct() const;
 
 
 };

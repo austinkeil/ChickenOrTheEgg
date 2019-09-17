@@ -16,6 +16,7 @@ Game::Game(int width, int height)
 #endif
 
     m_player = new Player(0,0,PLAYERSIZE);
+    m_player->setTexture("content/sfml.png");
 }
 
 void Game::play()

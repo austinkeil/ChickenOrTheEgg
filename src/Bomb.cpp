@@ -9,12 +9,12 @@ int Bomb::getDamage() const{
 int Bomb::getTime() const{
     return time;
 }
-void Bomb::setRange(int x){
-    range = x;
-    }
-void Bomb::setDamage(int x){
-        damage = x;
-    }
-void Bomb::setTime(int){
-        time = x;
-    }
+// void Bomb::setRange(int x){
+//     range = x;
+//     }
+// void Bomb::setDamage(int x){
+//         damage = x;
+//     }
+// void Bomb::setTime(int){
+//         time = x;
+//     }
