@@ -7,7 +7,8 @@ class Monster : public Actor
 {
 public:
 	Monster(float x, float y, float size);
+	~Monster();
 private:
 };
 
-#endif // monsters included
+#endif // MONSTERS_INLCLUDED
