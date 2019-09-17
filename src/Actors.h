@@ -8,17 +8,11 @@
 class Actors
 {
 public:
-	
+
 
 private:
-	
-	
+
+
 };
 
 #endif //ACTORS_INCLUDED
-
-//hey
-
-//hello
-
-//hi
