@@ -3,9 +3,11 @@
 #include <iostream>
 #include <string>
 
+const int PLAYERSIZE = 100;
 using namespace std;
 
-Game::Game(int width, int height) : m_window(sf::VideoMode(height, width), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar)
+Game::Game(int width, int height)
+    : m_window(sf::VideoMode(height, width), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar)
 {
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
@@ -13,17 +15,12 @@ Game::Game(int width, int height) : m_window(sf::VideoMode(height, width), "Chic
 	__windowsHelper.setIcon(window.getSystemHandle());
 #endif
 
+    m_player = new Player(0,0,PLAYERSIZE);
+    m_player->setTexture("content/sfml.png");
 }
 
 void Game::play()
 {
-    sf::RectangleShape player(sf::Vector2f(200,200));
-	player.setFillColor(sf::Color::Magenta);
-
-	sf::Texture shapeTexture;
-	shapeTexture.loadFromFile("content/sfml.png");
-	player.setTexture(&shapeTexture);
-
 	sf::Event event;
 
 	while (m_window.isOpen())
@@ -40,22 +37,22 @@ void Game::play()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
         {
-            player.move(-0.1f, 0.0f);
+            m_player->move(-0.1f, 0.0f);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
         {
-            player.move(0.0f, 0.1f);
+            m_player->move(0.0f, 0.1f);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
         {
-            player.move(0.1f, 0.0f);
+            m_player->move(0.1f, 0.0f);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
         {
-            player.move(0.0f, -0.1f);
+            m_player->move(0.0f, -0.1f);
         }
 		m_window.clear();
-		m_window.draw(player);
+		m_window.draw(m_player->getShape());
 		m_window.display();
 	}
 }
