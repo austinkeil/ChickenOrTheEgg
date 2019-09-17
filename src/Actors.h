@@ -8,10 +8,10 @@
 class Actors
 {
 public:
-
+	Actors(int x, int y);
 
 private:
-
+	Position mypos;
 
 };
 
