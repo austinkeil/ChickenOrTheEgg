@@ -33,6 +33,8 @@ private:
     Player *m_player;
     std::vector<GameObject*> m_unbreakable;
     std::vector<GameObject*> m_breakable;
+    int m_boardWidth;
+    int m_blockWidth;
 
 };
 
