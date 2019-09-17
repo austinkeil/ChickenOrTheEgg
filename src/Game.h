@@ -11,7 +11,11 @@ class Game
 public:
     Game(int width, int height);
     void play();
+<<<<<<< HEAD
     void drawGameBoardOne(sf::RenderWindow &w,std::vector<GameObject*> getBreakable());
+=======
+    void drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups);
+>>>>>>> 55c2895eeb5c466fa6d2f3c84c3a7c76360c75dc
 
     // ----- Getters -----
     std::vector<GameObject*> getBreakable();
@@ -33,6 +37,8 @@ private:
     Player *m_player;
     std::vector<GameObject*> m_unbreakable;
     std::vector<GameObject*> m_breakable;
+    int m_boardWidth;
+    int m_blockWidth;
 
 };
 

@@ -1,8 +1,8 @@
 #include "Main.hpp"
 #include "Game.h"
 
-const int BOARD_WIDTH  = 2000;
-const int BOARD_HEIGHT = 1000;
+const int BOARD_WIDTH  = 1500;
+const int BOARD_HEIGHT = 1500;
 
 int main()
 {
