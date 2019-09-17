@@ -10,7 +10,7 @@ void Actor::setColor(sf::Color color) {
 	m_playerShape.setFillColor(color);
 }
 
-sf::RectangleShape Actor::getShape() {
+sf::RectangleShape &Actor::getShape() {
 	return m_playerShape;
 }
 
