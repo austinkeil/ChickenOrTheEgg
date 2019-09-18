@@ -7,15 +7,21 @@
 class GameObject
 {
 public:
-    GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
+    GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups);
     Position objectPos;
     void drawMe();
-    std::string getName();
     void iteratePowerUps();
+    void setPos(int x, int y);
+    void setColor(sf::Color color);
+
 private:
+<<<<<<< HEAD
     std::string m_name = "";
     sf::RectangleShape m_playerShape;
+=======
+>>>>>>> d1c6938b6653a87a649367193449da31055b6e11
     sf::RenderWindow &m_window;
+    sf::RectangleShape m_objectShape;
     std::vector<GameObject*> &m_powerUps;
 };
 
@@ -23,10 +29,9 @@ class WallBlock : public GameObject
 {
     const bool isDestruct = false;
 
-
 public:
     WallBlock();
-    WallBlock(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
+    WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups);
     // bool isDestruct() const;
 
 };
@@ -34,7 +39,7 @@ class DestructWall : public GameObject
 {
     // const bool isDestruct = true;
 public:
-DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
+DestructWall(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups);
 ~DestructWall();
 
 // bool isDestruct() const;
@@ -43,7 +48,7 @@ DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<Ga
 class Worm : public GameObject
 {  // worms are the power ups
 public:
-    Worm(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
+    Worm(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups);
 private:
     // int point =100;
 

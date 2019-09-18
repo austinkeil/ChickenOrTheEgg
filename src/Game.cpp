@@ -20,6 +20,7 @@ Game::Game(int width, int height)
     m_player = new Player(0,0,PLAYERSIZE, m_window);
     cout << "Calling setTexture" << endl;
     m_player->setTexture("content/chicken.png");
+    generateBoard();
 }
 
 void Game::play()
@@ -53,12 +54,20 @@ void Game::play()
         {
             m_player->move(sf::Vector2f(0, -m_blockWidth));
         }
-		m_window.clear();
+        m_window.clear();
 		m_window.draw(m_player->getShape());
+        drawObjects();
 		m_window.display();
 	}
 }
+void Game::drawObjects() {
+    for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
+        m_breakable[i]->drawMe();
+    }
+    cout << "Finished drawing" << endl;
+}
 //as of 10am, not fully implemented. Need enemy vector
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 void Game::drawGameBoardOne(sf::RenderWindow &w,std::vector<GameObject*> getBreakable();)
@@ -68,7 +77,12 @@ void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
 =======
 void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
 >>>>>>> 6a07d42fcf0fd63a491985311d1b99412c9383ef
+=======
+void Game::generateBoard()
+>>>>>>> d1c6938b6653a87a649367193449da31055b6e11
 {
+  m_breakable.resize(NUMBER_OF_BLOCKS);
+
   int playerSpawn = randInt(4);
 
   switch (playerSpawn) {
@@ -88,27 +102,45 @@ void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
       break;
       //cry
     }
-    for(int i = 0; i < 36; i++)
+    // WallBlock *b = new WallBlock("Wall",500,500,w,pups);
+    // b->setColor(sf::Color::White);
+    // b->
+
+
+    for (int i = 0; i < NUMBER_OF_BLOCKS; i++)
     {
       //WallBlock constructor needs to be implemented !!!!
-      getUnbreakable()[i] = new WallBlock("Wall",0,0,w,pups);
+      m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
+      m_breakable[i]->setColor(sf::Color::White);
     }
 
+    int ndx = 0;
+    int outOfBounds = false;
     for(int i = BLOCK_SIDE; i <BOARD_HEIGHT; i+=200)
     {
+      if (outOfBounds){
+        break;
+      }
       for(int j = BLOCK_SIDE; j < BOARD_HEIGHT; j+=200)
       {
-        //getUnbreakable()[i]->setPos(i,j);
+        if (ndx >= NUMBER_OF_BLOCKS) {
+            outOfBounds = true;
+            cout << "broke inner" << endl;
+            break;
+        }
+        m_breakable[ndx]->setPos(i,j);
+        m_breakable[ndx]->drawMe();
+        ndx++;
       }
     }
 }
 
-std::vector<GameObject*> Game::getBreakable()
+std::vector<GameObject*> &Game::getBreakable()
 {
   return m_breakable;
 }
 
-std::vector<GameObject*> Game::getUnbreakable()
+std::vector<GameObject*> &Game::getUnbreakable()
 {
   return m_unbreakable;
 }

@@ -5,6 +5,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 GameObject::GameObject(){}
 GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w)
 : m_window(w)
@@ -16,23 +17,33 @@ GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std:
 GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : m_window(w), m_powerUps(pups)
 >>>>>>> 6a07d42fcf0fd63a491985311d1b99412c9383ef
+=======
+GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: m_window(w), m_objectShape(sf::Vector2f(size,size)), m_powerUps(pups)
+>>>>>>> d1c6938b6653a87a649367193449da31055b6e11
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
-	m_name = name;
 }
 
-WallBlock::WallBlock(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: GameObject(name,x,y,w,pups) {}
+void GameObject::setColor(sf::Color color) {
+	m_objectShape.setFillColor(color);
+}
 
+WallBlock::WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: GameObject(x,y, size, w,pups) {}
+
+void GameObject::setPos(int x, int y) {
+	objectPos.m_x = x;
+	objectPos.m_y = y;
+	m_objectShape.setPosition(sf::Vector2f(x, y));
+}
 void GameObject::drawMe() {
-	m_window.draw(m_playerShape);
+	// std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;
+	m_window.draw(m_objectShape);
 }
-std::string GameObject::getName() {
-	return m_name;
-}
-DestructWall::DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: GameObject(name,x,y,w, pups){
+DestructWall::DestructWall(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: GameObject(x,y, size, w, pups){
 }
 DestructWall::~DestructWall()
 {
@@ -53,5 +64,5 @@ DestructWall::~DestructWall()
 
 ////////////////
 
- Worm::Worm(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-    :GameObject(name, x, y, w, pups) {}
+ Worm::Worm(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+    :GameObject(x, y, size, w, pups) {}
