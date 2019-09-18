@@ -11,7 +11,7 @@ class Game
 public:
     Game(int width, int height);
     void play();
-    void drawGameBoardOne();
+    void drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups);
 
     // ----- Getters -----
     std::vector<GameObject*> getBreakable();

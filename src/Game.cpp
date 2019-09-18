@@ -57,7 +57,7 @@ void Game::play()
 	}
 }
 //as of 10am, not fully implemented. Need enemy vector
-void Game::drawGameBoardOne()
+void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
 {
   int playerSpawn = randInt(4);
 
@@ -81,14 +81,14 @@ void Game::drawGameBoardOne()
     for(int i = 0; i < 36; i++)
     {
       //WallBlock constructor needs to be implemented !!!!
-      //getUnbreakable()[i] = new WallBlock();
+      getUnbreakable()[i] = new WallBlock("Wall",0,0,w,pups);
     }
 
     for(int i = 1; i < 15; i+=2)
     {
       for(int j = 1; j < 15; j+=2)
       {
-        //getUnbreakable()[i].setPos(i,j);
+        //getUnbreakable()[i]->setPos(i,j);
       }
     }
 
