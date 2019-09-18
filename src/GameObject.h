@@ -16,11 +16,6 @@ public:
     void setTexture(std::string filename);
 
 private:
-<<<<<<< HEAD
-    std::string m_name = "";
-    sf::RectangleShape m_playerShape;
-=======
->>>>>>> d1c6938b6653a87a649367193449da31055b6e11
     sf::RenderWindow &m_window;
     sf::RectangleShape m_objectShape;
     sf::Texture m_texture;
