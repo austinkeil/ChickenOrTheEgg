@@ -79,7 +79,6 @@ void Player::dropEgg()
 void Player::drawBombs()
 {
 	for (auto &b: m_droppedEggs) {
-		std::cout << "drawing egg at" << b->getPos().x << ", " << b->getPos().y << std::endl;
 		b->drawMe();
 		drawMe();
 	}
