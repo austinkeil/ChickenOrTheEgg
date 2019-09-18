@@ -1,7 +1,11 @@
 #include "Actor.h"
 #include "rand.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Game.h"
+=======
+#include "globals.h"
+>>>>>>> origin
 =======
 #include "globals.h"
 >>>>>>> origin
