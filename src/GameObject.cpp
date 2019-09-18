@@ -4,18 +4,29 @@
 #include "rand.h"
 
 GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: m_window(w), m_powerUps(pups)
+: m_window(w), m_objectShape(sf::Vector2f(x,y)), m_powerUps(pups)
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
 	m_name = name;
 }
 
+void GameObject::setColor(sf::Color color) {
+	m_objectShape.setFillColor(color);
+}
+
 WallBlock::WallBlock(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : GameObject(name,x,y,w,pups) {}
 
+void GameObject::setPos(int x, int y) {
+	objectPos.m_x = x;
+	objectPos.m_y = y;
+	m_objectShape.setPosition(sf::Vector2f(x, y));
+}
 void GameObject::drawMe() {
-	m_window.draw(m_playerShape);
+	m_objectShape.setFillColor(sf::Color::White);
+	std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;
+	m_window.draw(m_objectShape);
 }
 std::string GameObject::getName() {
 	return m_name;

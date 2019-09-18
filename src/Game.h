@@ -10,17 +10,19 @@ const int BOARD_WIDTH  = 1500;
 const int BOARD_HEIGHT = 1500;
 const int BLOCK_COUNT = 15;
 const int BLOCK_SIDE = BOARD_HEIGHT/BLOCK_COUNT;
+const int NUMBER_OF_BLOCKS = 2*BLOCK_COUNT;
 
 class Game
 {
 public:
     Game(int width, int height);
     void play();
-    void drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups);
+    void generateBoard();
+    void drawObjects();
 
     // ----- Getters -----
-    std::vector<GameObject*> getBreakable();
-    std::vector<GameObject*> getUnbreakable();
+    std::vector<GameObject*> &getBreakable();
+    std::vector<GameObject*> &getUnbreakable();
 
     int getLevel();
     Player* getPlayer();

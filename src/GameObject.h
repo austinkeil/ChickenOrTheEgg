@@ -12,17 +12,19 @@ public:
     void drawMe();
     std::string getName();
     void iteratePowerUps();
+    void setPos(int x, int y);
+    void setColor(sf::Color color);
+
 private:
     std::string m_name;
-    sf::RectangleShape m_playerShape;
     sf::RenderWindow &m_window;
+    sf::RectangleShape m_objectShape;
     std::vector<GameObject*> &m_powerUps;
 };
 
 class WallBlock : public GameObject
 {
     const bool isDestruct = false;
-
 
 public:
     WallBlock();
