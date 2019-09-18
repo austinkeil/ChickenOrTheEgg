@@ -82,7 +82,7 @@ void Game::generateBreakables()
     {
 
         m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
-        m_breakable[i]->setTexture("content/breakable.jpeg");
+        m_breakable[i]->setTexture("content/m_sand.jpg");
     }
     // for each of the breakable blocks
     for (int j = 0; j < NUMBER_OF_BLOCKS; j++) {
@@ -115,7 +115,7 @@ void Game::generateUnbreakables()
     {
       //WallBlock constructor needs to be implemented !!!!
       m_unbreakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_unbreakable);
-      m_unbreakable[i]->setTexture("content/unbreakable.jpeg");
+      m_unbreakable[i]->setTexture("content/m_stone.png");
     }
 
     int ndx = 0;
