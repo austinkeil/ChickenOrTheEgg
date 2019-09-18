@@ -23,8 +23,7 @@ void GameObject::setPos(int x, int y) {
 	m_objectShape.setPosition(sf::Vector2f(x, y));
 }
 void GameObject::drawMe() {
-	m_objectShape.setFillColor(sf::Color::White);
-	std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;
+	// std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;
 	m_window.draw(m_objectShape);
 }
 DestructWall::DestructWall(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
