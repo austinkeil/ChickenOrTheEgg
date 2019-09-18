@@ -67,7 +67,19 @@ void Game::drawObjects() {
     // cout << "Finished drawing" << endl;
 }
 //as of 10am, not fully implemented. Need enemy vector
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+void Game::drawGameBoardOne(sf::RenderWindow &w,std::vector<GameObject*> getBreakable();)
+=======
+void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
+>>>>>>> 55c2895eeb5c466fa6d2f3c84c3a7c76360c75dc
+=======
+void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
+>>>>>>> 6a07d42fcf0fd63a491985311d1b99412c9383ef
+=======
 void Game::generateBoard()
+>>>>>>> d1c6938b6653a87a649367193449da31055b6e11
 {
   m_breakable.resize(NUMBER_OF_BLOCKS);
 
