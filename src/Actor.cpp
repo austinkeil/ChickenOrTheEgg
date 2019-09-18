@@ -1,5 +1,6 @@
 #include "Actor.h"
 #include "rand.h"
+#include "globals.h"
 
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w)
 : m_playerShape(sf::Vector2f(size, size)), m_window(w)
@@ -26,7 +27,9 @@ void Actor::move(float x_dist, float y_dist) {
 }
 
 void Actor::move(sf::Vector2f v) {
-	m_playerShape.move(v);
+	sf::Vector2f newPos = m_playerShape.getPosition() + v;
+	if (newPos.x >= 0 && newPos.x <= BOARD_WIDTH - BLOCK_SIDE && newPos.y >= 0 && newPos.y <= BOARD_WIDTH - BLOCK_SIDE)
+		m_playerShape.move(v);
 	// std::cout << "x: " << m_playerShape.getPosition().x << std::endl;
 	// std::cout << "y: " << m_playerShape.getPosition().y << std::endl;
 
