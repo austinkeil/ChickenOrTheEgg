@@ -42,7 +42,6 @@ private:
 	int m_power;
 	int m_maxSize;
 	std::vector<Bomb*> m_eggs;
-
 };
 
 #endif //ACTORS_INCLUDED
