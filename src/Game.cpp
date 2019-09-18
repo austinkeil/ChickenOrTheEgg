@@ -56,7 +56,7 @@ void Game::play()
         }
         m_window.clear();
 		m_window.draw(m_player->getShape());
-        drawObjects();
+    drawObjects();
 		m_window.display();
 	}
 }
@@ -65,7 +65,6 @@ void Game::drawObjects() {
         m_breakable[i]->drawMe();
     }
 }
-//as of 10am, not fully implemented. Need enemy vector
 
 void Game::generateBoard()
 {
