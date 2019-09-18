@@ -56,7 +56,7 @@ void Game::play()
         }
         m_window.clear();
 		m_window.draw(m_player->getShape());
-        drawObjects();
+    drawObjects();
 		m_window.display();
 	}
 }
@@ -66,7 +66,6 @@ void Game::drawObjects() {
     }
     // cout << "Finished drawing" << endl;
 }
-//as of 10am, not fully implemented. Need enemy vector
 
 void Game::generateBoard()
 {
