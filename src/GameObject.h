@@ -13,10 +13,12 @@ public:
     void iteratePowerUps();
     void setPos(int x, int y);
     void setColor(sf::Color color);
+    void setTexture(std::string filename);
 
 private:
     sf::RenderWindow &m_window;
     sf::RectangleShape m_objectShape;
+    sf::Texture m_texture;
     std::vector<GameObject*> &m_powerUps;
 };
 

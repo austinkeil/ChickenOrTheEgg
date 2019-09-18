@@ -13,9 +13,17 @@ GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<
 void GameObject::setColor(sf::Color color) {
 	m_objectShape.setFillColor(color);
 }
+void GameObject::setTexture(std::string filename) {
+	if (!m_texture.loadFromFile(filename)) {
+		std::cout << "Failed to load texture from " << filename << std::endl;
+	}
+	m_objectShape.setTexture(&m_texture);
+}
 
 WallBlock::WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: GameObject(x,y, size, w,pups) {}
+: GameObject(x,y, size, w,pups) {
+
+}
 
 void GameObject::setPos(int x, int y) {
 	objectPos.m_x = x;

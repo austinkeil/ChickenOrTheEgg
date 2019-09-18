@@ -64,7 +64,7 @@ void Game::drawObjects() {
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
         m_breakable[i]->drawMe();
     }
-    cout << "Finished drawing" << endl;
+    // cout << "Finished drawing" << endl;
 }
 //as of 10am, not fully implemented. Need enemy vector
 void Game::generateBoard()
@@ -99,7 +99,7 @@ void Game::generateBoard()
     {
       //WallBlock constructor needs to be implemented !!!!
       m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
-      m_breakable[i]->setColor(sf::Color::White);
+      m_breakable[i]->setTexture("content/stone.jpeg");
     }
 
     int ndx = 0;
