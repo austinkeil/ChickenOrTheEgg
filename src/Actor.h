@@ -32,6 +32,7 @@ class Player : public Actor
 {
 public:
 	Player(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
+
 	void dispPower();
 	void addhitpoints();
 	virtual void spawn();

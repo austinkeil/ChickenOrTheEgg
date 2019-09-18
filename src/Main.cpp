@@ -4,6 +4,7 @@
 
 int main()
 {
+
 	srand(time(0));
 	Game g(BOARD_HEIGHT, BOARD_WIDTH);
     g.play();

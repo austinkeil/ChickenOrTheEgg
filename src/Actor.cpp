@@ -66,7 +66,7 @@ Player::Player(float x, float y, float size, sf::RenderWindow &w, std::vector<Ga
 : Actor(x, y, size, w, breakable, unbreakable)
 {
 	m_power = randInt(3);
-	for(int i = 0; i < 5;i++){
+	for(int i = 0; i < 100;i++){
 		Bomb *b = new Bomb(x,y,PLAYERSIZE,w, breakable);
 		b->setColor(sf::Color::White);
 		b->setTexture("content/tnt.png");

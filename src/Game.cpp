@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "globals.h"
+#include "SFML/Audio.hpp"
 
 using namespace std;
 
@@ -28,6 +29,11 @@ Game::Game(int width, int height)
 
 void Game::play()
 {
+  sf::Music music;
+  music.openFromFile("content/sound.ogg");
+  music.play();
+
+
 	sf::Event event;
 
 	while (m_window.isOpen())
@@ -65,6 +71,8 @@ void Game::play()
 		    m_window.draw(m_player->getShape());
         drawUnbreakables();
         drawBreakables();
+
+
         m_player->updateBombs();
 		    m_window.display();
 	}
