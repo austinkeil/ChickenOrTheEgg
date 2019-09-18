@@ -80,11 +80,20 @@ void Game::drawGameBoardOne()
       //cry
     }
 
+
+
+
+
 }
 
-std::vector<GameObject*> Game::getObjects()
+std::vector<GameObject*> Game::getBreakable()
 {
-  return m_objects;
+  return m_breakable;
+}
+
+std::vector<GameObject*> Game::getUnbreakable()
+{
+  return m_unbreakable;
 }
 
 int Game::getLevel()
@@ -97,9 +106,14 @@ Player* Game::getPlayer()
   return m_player;
 }
 
-void Game::setObjects(std::vector<GameObject*> objects)
+void Game::setBreakable(std::vector<GameObject*> objects)
 {
-  m_objects = objects;
+  m_breakable = objects;
+}
+
+void Game::setUnbreakable(std::vector<GameObject*> objects)
+{
+  m_unbreakable = objects;
 }
 
 void Game::setLevel(int lvl)
