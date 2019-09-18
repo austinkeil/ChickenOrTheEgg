@@ -14,7 +14,6 @@ private:
     int m_range;
     int m_damage;
     sf::Clock m_clock;
-
 };
 
 #endif

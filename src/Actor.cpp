@@ -34,15 +34,21 @@ void Actor::move(sf::Vector2f v) {
 	if (newPos.x >= 0 && newPos.x <= BOARD_WIDTH - BLOCK_SIDE && newPos.y >= 0 && newPos.y <= BOARD_WIDTH - BLOCK_SIDE)
 	{
 		for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
-			// std::cout << "checking if player pos (" << newPos.x << ", " << newPos.y
-			// << ") equals block pos (" << m_breakable[i]->getPos().x << ", " << m_breakable[i]->getPos().y << ")" << std::endl;
 			if (m_breakable[i]->getPos() == newPos || m_unbreakable[i]->getPos() == newPos){
 				validMove = false;
 				break;
 			}
 		}
-		if (validMove)
-			m_playerShape.move(v);
+		if (validMove) {
+			for (int i = 0; i < static_cast<int>(m_droppedEggs.size()); i++) {
+				if (m_droppedEggs[i]->getPos() == newPos) {
+					validMove = false;
+					break;
+				}
+			}
+			if (validMove)
+				m_playerShape.move(v);
+		}
 	}
 	// std::cout << "x: " << m_playerShape.getPosition().x << std::endl;
 	// std::cout << "y: " << m_playerShape.getPosition().y << std::endl;

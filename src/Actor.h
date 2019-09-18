@@ -24,6 +24,8 @@ protected:
 	sf::RenderWindow &m_window;
 	std::vector<GameObject*> &m_breakable;
 	std::vector<GameObject*> &m_unbreakable;
+	std::vector<Bomb*> m_droppedEggs;
+
 };
 
 class Player : public Actor
@@ -35,13 +37,11 @@ public:
 	virtual void spawn();
 	void dropEgg();
 	void updateBombs();
-
 private:
 	int m_hitpoints;
 	int m_power;
 	int m_maxSize;
 	std::vector<Bomb*> m_eggs;
-	std::vector<Bomb*> m_droppedEggs;
 
 };
 
