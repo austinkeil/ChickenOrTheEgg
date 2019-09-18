@@ -19,8 +19,17 @@ sf::RectangleShape &Actor::getShape() {
 void Actor::drawMe() {
 	m_window.draw(m_playerShape);
 }
+
 void Actor::move(float x_dist, float y_dist) {
 	m_playerShape.move(x_dist, y_dist);
+	sf::sleep(sf::milliseconds(1000));
+}
+
+void Actor::move(sf::Vector2f v) {
+	m_playerShape.move(v);
+	// std::cout << "x: " << m_playerShape.getPosition().x << std::endl;
+	// std::cout << "y: " << m_playerShape.getPosition().y << std::endl;
+
 }
 
 void Actor::setTexture(std::string texturePath) {

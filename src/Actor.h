@@ -11,6 +11,7 @@ class Actor
 public:
 	Actor(float x, float y, float size, sf::RenderWindow &w);
 	void move(float x_dist, float y_dist);
+	void move(sf::Vector2f v);
 	void setColor(sf::Color color);
 	void setTexture(std::string texturePath);
 	sf::RectangleShape &getShape();

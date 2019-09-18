@@ -5,12 +5,15 @@
 #include <iostream>
 #include <string>
 
-const int PLAYERSIZE = 300;
+const int PLAYERSIZE = 100;
 using namespace std;
 
 Game::Game(int width, int height)
     : m_window(sf::VideoMode(height, width), "Chicken or the Egg", sf::Style::Close | sf::Style::Titlebar)
 {
+    m_window.setFramerateLimit(10);
+    m_boardWidth = width;
+    m_blockWidth = PLAYERSIZE;
     std::cout << "Game Started!" << std::endl;
     m_level = 0;
 
@@ -34,22 +37,21 @@ void Game::play()
 					printf("%c\n", event.text.unicode);
 			}
 		}
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
         {
-            m_player->move(-0.1f, 0.0f);
+            m_player->move(sf::Vector2f(-m_blockWidth, 0));
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
         {
-            m_player->move(0.0f, 0.1f);
+            m_player->move(sf::Vector2f(0, m_blockWidth));
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
         {
-            m_player->move(0.1f, 0.0f);
+            m_player->move(sf::Vector2f(m_blockWidth, 0));
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
         {
-            m_player->move(0.0f, -0.1f);
+            m_player->move(sf::Vector2f(0, -m_blockWidth));
         }
 		m_window.clear();
 		m_window.draw(m_player->getShape());
@@ -91,11 +93,6 @@ void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
         //getUnbreakable()[i]->setPos(i,j);
       }
     }
-
-
-
-
-
 }
 
 std::vector<GameObject*> Game::getBreakable()
