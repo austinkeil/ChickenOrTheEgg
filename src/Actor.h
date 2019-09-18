@@ -36,10 +36,10 @@ public:
 	virtual void spawn();
 
 private:
-	int hitpoints = 1;
+	int m_hitpoints;
 	int m_power;
-	int max_size = 1;
-	std::vector<Bomb> eggs;
+	int m_maxSize;
+	std::vector<Bomb> m_eggs;
 };
 
 #endif //ACTORS_INCLUDED

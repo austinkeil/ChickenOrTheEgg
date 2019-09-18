@@ -1,21 +1,7 @@
 #include "Actor.h"
 #include "rand.h"
-<<<<<<< HEAD
-<<<<<<< HEAD
 #include "Game.h"
-=======
 #include "globals.h"
->>>>>>> 15e88880756a383890816c2310de0036549ce593
-=======
-<<<<<<< HEAD
-#include "Game.h"
-=======
-#include "globals.h"
->>>>>>> origin
-=======
-#include "globals.h"
->>>>>>> origin
->>>>>>> master
 
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable)
 : m_playerShape(sf::Vector2f(size, size)), m_window(w), m_breakable(breakable), m_unbreakable(unbreakable)
@@ -74,8 +60,8 @@ Player::Player(float x, float y, float size, sf::RenderWindow &w, std::vector<Ga
 {
 	m_power = randInt(3);
 	for(int i = 0; i < 5;i++){
-		Bomb b = Bomb(x,y,PLAYERSIZE,w, );
-		eggs.push_back(b);
+		Bomb b = Bomb(x,y,PLAYERSIZE,w, breakable);
+		m_eggs.push_back(b);
 	}
 }
 void Player::spawn()
@@ -106,16 +92,16 @@ void Player::dispPower()
 
      {
          case 0:
-		 hitpoints++;
+		 m_hitpoints++;
 		 //function() to display the power up to the player
 			break;
          case 1:
-		 for(int i =0; i < eggs.size();i++){
-			eggs[i].setRange(eggs[i].getRange() + 1);
+		 for(int i =0; i < static_cast<int>(m_eggs.size());i++){
+			m_eggs[i].setRange(m_eggs[i].getRange() + 1);
 		 }
 		 	break;
          case 2:
-		 	max_size++;// adds the carrying capacity of bombs + 1
+		 	m_maxSize++;// adds the carrying capacity of bombs + 1
 			break;
 
 		default:
@@ -125,7 +111,7 @@ void Player::dispPower()
 
 void Player :: addhitpoints()
 {
-	hitpoints+=1;
+	m_hitpoints+=1;
 }
 void Actor::setPos(float x, float y)
 {
