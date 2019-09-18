@@ -4,6 +4,7 @@
 #include "GameObject.h"
 #include <iostream>
 #include <string>
+#include "globals.h"
 
 using namespace std;
 
@@ -63,7 +64,6 @@ void Game::drawObjects() {
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
         m_breakable[i]->drawMe();
     }
-    // cout << "Finished drawing" << endl;
 }
 
 void Game::generateBoard()
