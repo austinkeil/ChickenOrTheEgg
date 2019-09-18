@@ -1,17 +1,17 @@
 #ifndef CHICKENORTHEEGG_GAMEOBJECTS_H
 #define CHICKENORTHEEGG_GAMEOBJECTS_H
 #include <string>
-#include "Position.h"
 #include <vector>
 
 class GameObject
 {
 public:
     GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups);
-    Position objectPos;
     void drawMe();
     void iteratePowerUps();
     void setPos(int x, int y);
+    void setPos(sf::Vector2f v);
+    sf::Vector2f getPos();
     void setColor(sf::Color color);
     void setTexture(std::string filename);
 

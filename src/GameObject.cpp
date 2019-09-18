@@ -1,13 +1,15 @@
 #include "GameObject.h"
-#include "Position.h"
 #include <string>
 #include "rand.h"
 
 GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : m_window(w), m_objectShape(sf::Vector2f(size,size)), m_powerUps(pups)
 {
-    objectPos.m_x = x;
-    objectPos.m_y = y;
+	m_objectShape.setPosition(sf::Vector2f(x,y));
+}
+
+sf::Vector2f GameObject::getPos() {
+	return m_objectShape.getPosition();
 }
 
 void GameObject::setColor(sf::Color color) {
@@ -22,13 +24,13 @@ void GameObject::setTexture(std::string filename) {
 
 WallBlock::WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : GameObject(x,y, size, w,pups) {
-
 }
 
 void GameObject::setPos(int x, int y) {
-	objectPos.m_x = x;
-	objectPos.m_y = y;
 	m_objectShape.setPosition(sf::Vector2f(x, y));
+}
+void GameObject::setPos(sf::Vector2f v) {
+	m_objectShape.setPosition(v);
 }
 void GameObject::drawMe() {
 	// std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;

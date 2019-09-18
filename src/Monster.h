@@ -6,7 +6,7 @@
 class Monster : public Actor
 {
 public:
-	Monster(float x, float y, float size, sf::RenderWindow &w);
+	Monster(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
 	~Monster();
 private:
 };
