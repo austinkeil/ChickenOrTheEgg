@@ -9,5 +9,7 @@ const int BOARD_HEIGHT = 1500;
 const int BLOCK_COUNT = 15;
 const int BLOCK_SIDE = BOARD_HEIGHT/BLOCK_COUNT;
 const int NUMBER_OF_BLOCKS = pow((BLOCK_COUNT)/2, 2);
+const int BOMB_TIME = 3;
+const int EXPLODE_TIME = 5;
 
 #endif //CHICKENORTHEEGG_GLOBALS_H

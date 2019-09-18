@@ -86,10 +86,16 @@ void Player::updateBombs()
 {
 	auto it = m_droppedEggs.begin();
 	while (it != m_droppedEggs.end()) {
-		if ((*it)->getElapsed() >= 5) {
-			std::cout << "detonate" << std::endl;
-			it = m_droppedEggs.erase(it);
-			// EXPLODE
+		if ((*it)->getElapsed() >= BOMB_TIME) {
+			(*it)->setExploded(true);
+			if ((*it)->getElapsed() >= EXPLODE_TIME) {
+				std::cout << "clearing explosion at " << (*it)->getPos().x << ", " << (*it)->getPos().y << std::endl;
+				it = m_droppedEggs.erase(it);
+			} else {
+				(*it)->drawMe();
+				++it;
+				drawMe();
+			}
 		} else {
 			(*it)->drawMe();
 			++it;
@@ -97,6 +103,7 @@ void Player::updateBombs()
 		}
 	}
 }
+
 void Player::spawn()
 {
 int playerSpawn = randInt(4);

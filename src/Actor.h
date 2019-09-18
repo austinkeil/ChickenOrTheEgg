@@ -15,7 +15,7 @@ public:
 	sf::RectangleShape &getShape();
 	virtual void setPos(float x, float y);
 	sf::Vector2f getPos();
-	void drawMe();
+	virtual void drawMe();
 	virtual void spawn();
 
 protected:
@@ -43,7 +43,6 @@ private:
 	int m_power;
 	int m_maxSize;
 	std::vector<Bomb*> m_eggs;
-
 };
 
 #endif //ACTORS_INCLUDED
