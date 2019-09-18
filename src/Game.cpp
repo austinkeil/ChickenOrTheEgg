@@ -72,12 +72,7 @@ void Game::play()
 		    m_window.draw(m_player->getShape());
         drawUnbreakables();
         drawBreakables();
-<<<<<<< HEAD
-
-
-=======
         drawMonsters();
->>>>>>> 85badafcf0e727a04faa2f03d34df335cd0b8015
         m_player->updateBombs();
 		    m_window.display();
 	}
