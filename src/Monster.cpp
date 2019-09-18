@@ -10,7 +10,7 @@ Monster :: Monster(float x, float y, float size, sf::RenderWindow &w, std::vecto
 	m_power = 1;
 }
 
-void Monster::move()
+void Monster::moveRandom()
 {
 	sf::Vector2f v;
 	int movement = randInt(4);
