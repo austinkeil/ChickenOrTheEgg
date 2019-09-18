@@ -6,6 +6,11 @@
 #include "Actor.h"
 #include "GameObject.h"
 
+const int BOARD_WIDTH  = 1500;
+const int BOARD_HEIGHT = 1500;
+const int BLOCK_COUNT = 15;
+const int BLOCK_SIDE = BOARD_HEIGHT/BLOCK_COUNT;
+
 class Game
 {
 public:

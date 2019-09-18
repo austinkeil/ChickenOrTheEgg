@@ -63,16 +63,16 @@ void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
 
   switch (playerSpawn) {
     case 0:
-      m_player->setPos(1,1);
+      m_player->setPos(BLOCK_SIDE,BLOCK_SIDE);
       break;
     case 1:
-      m_player->setPos(14,1);
+      m_player->setPos(14 * BLOCK_SIDE,BLOCK_SIDE);
       break;
     case 2:
-      m_player->setPos(1,14);
+      m_player->setPos(BLOCK_SIDE,14 * BLOCK_SIDE);
       break;
     case 3:
-      m_player->setPos(14,14);
+      m_player->setPos(14 * BLOCK_SIDE,14 * BLOCK_SIDE);
       break;
     default:
       break;
@@ -84,9 +84,9 @@ void Game::drawGameBoardOne(sf::RenderWindow &w, std::vector<GameObject*> &pups)
       getUnbreakable()[i] = new WallBlock("Wall",0,0,w,pups);
     }
 
-    for(int i = 1; i < 15; i+=2)
+    for(int i = BLOCK_SIDE; i <BOARD_HEIGHT; i+=200)
     {
-      for(int j = 1; j < 15; j+=2)
+      for(int j = BLOCK_SIDE; j < BOARD_HEIGHT; j+=200)
       {
         //getUnbreakable()[i]->setPos(i,j);
       }
