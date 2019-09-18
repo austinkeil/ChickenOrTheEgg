@@ -3,13 +3,16 @@
 #include <string>
 #include "rand.h"
 
-GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w)
-: m_window(w)
+GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: m_window(w), m_powerUps(pups)
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
-	m_name = name;
+	  m_name = name;
 }
+
+WallBlock::WallBlock(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: GameObject(name,x,y,w,pups) {}
 
 void GameObject::drawMe() {
 	m_window.draw(m_playerShape);
@@ -38,9 +41,5 @@ DestructWall::~DestructWall()
 
 ////////////////
 
- Worm::Worm(std::string name, int x, int y, sf::RenderWindow &w)
-    :GameObject(name, x, y, w) {
-    }
-
-
-
+ Worm::Worm(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+    :GameObject(name, x, y, w, pups) {}
