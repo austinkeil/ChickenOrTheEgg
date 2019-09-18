@@ -15,7 +15,7 @@ public:
 	sf::RectangleShape &getShape();
 	virtual void setPos(float x, float y);
 	sf::Vector2f getPos();
-	void drawMe();
+	virtual void drawMe();
 	virtual void spawn();
 
 protected:
@@ -32,6 +32,7 @@ class Player : public Actor
 {
 public:
 	Player(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
+
 	void dispPower();
 	void addhitpoints();
 	virtual void spawn();

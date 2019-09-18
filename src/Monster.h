@@ -10,6 +10,7 @@ public:
 	~Monster();
 
 	void moveRandom();
+	void setPos(float x, float y);
 private:
 	int m_hitpoints;
 	int m_power;
