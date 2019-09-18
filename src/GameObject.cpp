@@ -10,6 +10,10 @@ GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<
     objectPos.m_y = y;
 }
 
+sf::Vector2f GameObject::getPos() {
+	return m_objectShape.getPosition();
+}
+
 void GameObject::setColor(sf::Color color) {
 	m_objectShape.setFillColor(color);
 }
