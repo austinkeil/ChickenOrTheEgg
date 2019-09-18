@@ -11,7 +11,7 @@ class Game
 public:
     Game(int width, int height);
     void play();
-    void drawGameBoard();
+    void drawGameBoardOne();
 
     // ----- Getters -----
     std::vector<GameObject*> getObjects();
