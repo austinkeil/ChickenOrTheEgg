@@ -38,6 +38,7 @@ public:
 private:
 	int hitpoints = 1;
 	int m_power;
+	int max_size = 1;
 	std::vector<Bomb> eggs;
 };
 
