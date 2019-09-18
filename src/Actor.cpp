@@ -130,7 +130,7 @@ void Player::dispPower()
 			break;
          case 1:
 		 for(int i = 0; i < static_cast<int>(m_eggs.size());i++){
-			m_eggs[i]->setRange(m_eggs[i]->getRange() + 1);
+			m_eggs[i]->setDamage(m_eggs[i]->getDamage() + 1);
 		 }
 		 	break;
          case 2:
