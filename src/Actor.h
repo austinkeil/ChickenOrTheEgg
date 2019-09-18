@@ -16,6 +16,7 @@ public:
 	virtual void setPos(float x, float y);
 	sf::Vector2f getPos();
 	void drawMe();
+	virtual void spawn();
 	// virtual void spawn(); // randomly places actors
 
 private:
@@ -32,6 +33,8 @@ public:
 	Player(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
 	void dispPower();
 	void addhitpoints();
+	virtual void spawn();
+
 private:
 	int hitpoints = 1;
 	int m_power;

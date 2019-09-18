@@ -24,11 +24,13 @@ void GameObject::setTexture(std::string filename) {
 
 WallBlock::WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : GameObject(x,y, size, w,pups) {
-
 }
 
 void GameObject::setPos(int x, int y) {
 	m_objectShape.setPosition(sf::Vector2f(x, y));
+}
+void GameObject::setPos(sf::Vector2f v) {
+	m_objectShape.setPosition(v);
 }
 void GameObject::drawMe() {
 	// std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;

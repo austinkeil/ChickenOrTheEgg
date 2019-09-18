@@ -6,9 +6,10 @@ Actor::Actor(float x, float y, float size, sf::RenderWindow &w, std::vector<Game
 : m_playerShape(sf::Vector2f(size, size)), m_window(w), m_breakable(breakable), m_unbreakable(unbreakable)
 {
 	m_playerShape.setPosition(sf::Vector2f(x, y));
-	(void)m_unbreakable;
 }
+void Actor::spawn() {
 
+}
 void Actor::setColor(sf::Color color) {
 	m_playerShape.setFillColor(color);
 }
@@ -33,7 +34,7 @@ void Actor::move(sf::Vector2f v) {
 		for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
 			// std::cout << "checking if player pos (" << newPos.x << ", " << newPos.y
 			// << ") equals block pos (" << m_breakable[i]->getPos().x << ", " << m_breakable[i]->getPos().y << ")" << std::endl;
-			if (m_breakable[i]->getPos() == newPos){
+			if (m_breakable[i]->getPos() == newPos || m_unbreakable[i]->getPos() == newPos){
 				validMove = false;
 				break;
 			}
@@ -57,6 +58,27 @@ Player::Player(float x, float y, float size, sf::RenderWindow &w, std::vector<Ga
 : Actor(x, y, size, w, breakable, unbreakable)
 {
 	m_power = randInt(3);
+}
+void Player::spawn()
+{
+int playerSpawn = randInt(4);
+  	switch (playerSpawn) {
+    case 0:
+      setPos(BLOCK_SIDE,0);
+      break;
+    case 1:
+      setPos(14 * BLOCK_SIDE,0);
+      break;
+    case 2:
+      setPos(0,14 * BLOCK_SIDE);
+      break;
+    case 3:
+      setPos(14 * BLOCK_SIDE,14 * BLOCK_SIDE);
+      break;
+    default:
+      break;
+      //cry
+    }
 }
 
 void Player::dispPower()

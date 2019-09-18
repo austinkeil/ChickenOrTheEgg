@@ -12,8 +12,10 @@ class Game
 public:
     Game(int width, int height);
     void play();
-    void generateBoard();
-    void drawObjects();
+    void generateBreakables();
+    void generateUnbreakables();
+    void drawUnbreakables();
+    void drawBreakables();
 
     // ----- Getters -----
     std::vector<GameObject*> &getBreakable();
@@ -37,7 +39,6 @@ private:
     std::vector<GameObject*> m_breakable;
     int m_boardWidth;
     int m_blockWidth;
-
 };
 
 #endif // GAME_INCLUDED

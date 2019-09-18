@@ -10,6 +10,7 @@ public:
     void drawMe();
     void iteratePowerUps();
     void setPos(int x, int y);
+    void setPos(sf::Vector2f v);
     sf::Vector2f getPos();
     void setColor(sf::Color color);
     void setTexture(std::string filename);

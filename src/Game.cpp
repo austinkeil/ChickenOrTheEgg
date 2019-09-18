@@ -20,7 +20,9 @@ Game::Game(int width, int height)
     m_player = new Player(0,0,PLAYERSIZE, m_window, m_breakable, m_unbreakable);
     cout << "Calling setTexture" << endl;
     m_player->setTexture("content/chicken.png");
-    generateBoard();
+    m_player->spawn();
+    generateUnbreakables();
+    generateBreakables();
 }
 
 void Game::play()
@@ -56,44 +58,64 @@ void Game::play()
         }
         m_window.clear();
 		m_window.draw(m_player->getShape());
-        drawObjects();
+        drawUnbreakables();
+        drawBreakables();
 		m_window.display();
 	}
 }
-void Game::drawObjects() {
+void Game::drawUnbreakables() {
+    for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
+        m_unbreakable[i]->drawMe();
+    }
+}
+
+void Game::drawBreakables() {
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
         m_breakable[i]->drawMe();
     }
 }
 
-void Game::generateBoard()
+void Game::generateBreakables()
 {
-  m_breakable.resize(NUMBER_OF_BLOCKS);
+    m_breakable.resize(NUMBER_OF_BLOCKS);
+    for (int i = 0; i < NUMBER_OF_BLOCKS; i++)
+    {
 
-  int playerSpawn = randInt(4);
-  switch (playerSpawn) {
-    case 0:
-      m_player->setPos(BLOCK_SIDE,0);
-      break;
-    case 1:
-      m_player->setPos(14 * BLOCK_SIDE,0);
-      break;
-    case 2:
-      m_player->setPos(0,14 * BLOCK_SIDE);
-      break;
-    case 3:
-      m_player->setPos(14 * BLOCK_SIDE,14 * BLOCK_SIDE);
-      break;
-    default:
-      break;
-      //cry
+        m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
+        m_breakable[i]->setTexture("content/breakable.jpeg");
     }
+    // for each of the breakable blocks
+    for (int j = 0; j < NUMBER_OF_BLOCKS; j++) {
+        bool valid = false;
+        bool taken = false;
+        while (!valid) {
+            sf::Vector2f v(randInt(BLOCK_COUNT-1)*100, randInt(BLOCK_COUNT-1)*100);
+            for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
+                sf::Vector2f b(m_breakable[i]->getPos());
+                sf::Vector2f u(m_unbreakable[i]->getPos());
 
+                if (b == v || u == v) {
+                    taken = true;
+                    break;
+                }
+            }
+            if (taken) {
+                break;
+            }
+
+            m_breakable[j]->setPos(v);
+            m_breakable[j]->drawMe();
+        }
+    }
+}
+void Game::generateUnbreakables()
+{
+    m_unbreakable.resize(NUMBER_OF_BLOCKS);
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++)
     {
       //WallBlock constructor needs to be implemented !!!!
-      m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
-      m_breakable[i]->setTexture("content/stone.jpeg");
+      m_unbreakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_unbreakable);
+      m_unbreakable[i]->setTexture("content/unbreakable.jpeg");
     }
 
     int ndx = 0;
@@ -110,8 +132,8 @@ void Game::generateBoard()
             cout << "broke inner" << endl;
             break;
         }
-        m_breakable[ndx]->setPos(i,j);
-        m_breakable[ndx]->drawMe();
+        m_unbreakable[ndx]->setPos(i,j);
+        m_unbreakable[ndx]->drawMe();
         ndx++;
       }
     }
