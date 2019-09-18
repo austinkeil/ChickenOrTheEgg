@@ -18,7 +18,7 @@ public:
 	void drawMe();
 	virtual void spawn();
 
-private:
+protected:
 	sf::RectangleShape m_playerShape;
 	sf::Texture m_shapeTexture;
 	sf::RenderWindow &m_window;
