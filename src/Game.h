@@ -7,7 +7,6 @@
 #include "GameObject.h"
 #include "math.h"
 #include "globals.h"
-#include "Monster.h"
 
 class Game
 {
@@ -36,7 +35,6 @@ public:
 
 
 protected:
-
     int m_level;
     sf::RenderWindow m_window;
     Player *m_player;

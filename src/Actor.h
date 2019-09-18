@@ -25,14 +25,28 @@ protected:
 	std::vector<GameObject*> &m_breakable;
 	std::vector<GameObject*> &m_unbreakable;
 	std::vector<Bomb*> m_droppedEggs;
+};
+
+class Monster : public Actor
+{
+public:
+	Monster(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
+	~Monster();
+
+	void moveRandom();
+	void setPos(float x, float y);
+private:
+	int m_hitpoints;
+	int m_power;
+	int m_pointValue;
 
 };
+
 
 class Player : public Actor
 {
 public:
-	Player(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
-
+	Player(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable, std::vector<Monster*> &enemies);
 	void dispPower();
 	void addhitpoints();
 	virtual void spawn();
@@ -40,12 +54,14 @@ public:
 	void updateBombs();
 	void explode(sf::Vector2f v);
 	void explodeBreakables(sf::Vector2f v);
+	void explodeZombies(sf::Vector2f v);
 	void addGraphic(sf::Vector2f v, std::string filename);
-private:
+protected:
 	int m_hitpoints;
 	int m_power;
 	int m_maxSize;
 	std::vector<Bomb*> m_eggs;
+	std::vector<Monster*> &m_enemies;
 };
 
 #endif //ACTORS_INCLUDED
