@@ -34,7 +34,7 @@ public:
 	void addhitpoints();
 	virtual void spawn();
 	void dropEgg();
-	void drawBombs();
+	void updateBombs();
 
 private:
 	int m_hitpoints;

@@ -10,6 +10,7 @@ Bomb::Bomb(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*>
 }
 void Bomb::drop(sf::Vector2f v) {
     m_objectShape.setPosition(v);
+    m_clock.restart();
     cout << "Bomb::drop() at " << v.x
     << ", " << v.y << endl;
     drawMe();
@@ -20,8 +21,8 @@ int Bomb::getRange() const{
 int Bomb::getDamage() const{
     return m_damage;
 }
-int Bomb::getTime() const{
-    return m_time;
+int Bomb::getElapsed() const{
+    return m_clock.getElapsedTime().asSeconds();
 }
 
 void Bomb::setRange(int x){
@@ -30,7 +31,4 @@ void Bomb::setRange(int x){
 
 void Bomb::setDamage(int x){
     m_damage = x;
-}
-void Bomb::setTime(int x){
-    m_time = x;
 }

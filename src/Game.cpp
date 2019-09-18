@@ -65,7 +65,7 @@ void Game::play()
 		    m_window.draw(m_player->getShape());
         drawUnbreakables();
         drawBreakables();
-        m_player->drawBombs();
+        m_player->updateBombs();
 		    m_window.display();
 	}
 }

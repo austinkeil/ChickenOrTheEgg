@@ -76,11 +76,19 @@ void Player::dropEgg()
 		m_droppedEggs.push_back(b);
 	}
 }
-void Player::drawBombs()
+void Player::updateBombs()
 {
-	for (auto &b: m_droppedEggs) {
-		b->drawMe();
-		drawMe();
+	auto it = m_droppedEggs.begin();
+	while (it != m_droppedEggs.end()) {
+		if ((*it)->getElapsed() >= 5) {
+			std::cout << "detonate" << std::endl;
+			it = m_droppedEggs.erase(it);
+			// EXPLODE
+		} else {
+			(*it)->drawMe();
+			++it;
+			drawMe();
+		}
 	}
 }
 void Player::spawn()

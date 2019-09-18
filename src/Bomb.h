@@ -7,14 +7,13 @@ public:
     void drop(sf::Vector2f v);
     int getRange() const;//getters
     int getDamage() const;
-    int getTime() const;
+    int getElapsed() const;
     void setRange(int x);//setters
     void setDamage(int x);
-    void setTime(int x);
 private:
     int m_range;
     int m_damage;
-    int m_time;
+    sf::Clock m_clock;
 
 };
 
