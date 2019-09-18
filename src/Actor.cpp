@@ -1,10 +1,21 @@
 #include "Actor.h"
 #include "rand.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Game.h"
 =======
 #include "globals.h"
 >>>>>>> 15e88880756a383890816c2310de0036549ce593
+=======
+<<<<<<< HEAD
+#include "Game.h"
+=======
+#include "globals.h"
+>>>>>>> origin
+=======
+#include "globals.h"
+>>>>>>> origin
+>>>>>>> master
 
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w)
 : m_playerShape(sf::Vector2f(size, size)), m_window(w)

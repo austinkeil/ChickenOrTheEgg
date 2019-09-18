@@ -6,6 +6,10 @@
 #include "Actor.h"
 #include "GameObject.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 #include "math.h"
 
 const int PLAYERSIZE = 100;
@@ -16,7 +20,14 @@ const int BLOCK_SIDE = BOARD_HEIGHT/BLOCK_COUNT;
 const int NUMBER_OF_BLOCKS = pow((BLOCK_COUNT)/2, 2);
 =======
 #include "globals.h"
+<<<<<<< HEAD
 >>>>>>> 15e88880756a383890816c2310de0036549ce593
+=======
+>>>>>>> origin
+=======
+#include "globals.h"
+>>>>>>> origin
+>>>>>>> master
 
 class Game
 {
