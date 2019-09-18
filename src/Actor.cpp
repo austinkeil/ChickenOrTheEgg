@@ -1,6 +1,7 @@
 #include "Actor.h"
 #include "rand.h"
 #include "Game.h"
+#include "Bomb.h"
 #include "globals.h"
 
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable)

@@ -88,7 +88,11 @@ void Game::generateBreakables()
     {
 
         m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
+<<<<<<< HEAD
         m_breakable[i]->setTexture("content/m_sand.png");
+=======
+        m_breakable[i]->setTexture("content/sand.png");
+>>>>>>> 220a52f038009ccef62de1d90a7e3967cfbc2444
     }
     // for each of the breakable blocks
     for (int j = 0; j < NUMBER_OF_BLOCKS; j++) {
