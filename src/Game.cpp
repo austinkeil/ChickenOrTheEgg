@@ -56,7 +56,7 @@ void Game::play()
         }
         m_window.clear();
 		m_window.draw(m_player->getShape());
-    drawObjects();
+        drawObjects();
 		m_window.display();
 	}
 }
@@ -71,16 +71,15 @@ void Game::generateBoard()
   m_breakable.resize(NUMBER_OF_BLOCKS);
 
   int playerSpawn = randInt(4);
-
   switch (playerSpawn) {
     case 0:
-      m_player->setPos(BLOCK_SIDE,BLOCK_SIDE);
+      m_player->setPos(BLOCK_SIDE,0);
       break;
     case 1:
-      m_player->setPos(14 * BLOCK_SIDE,BLOCK_SIDE);
+      m_player->setPos(14 * BLOCK_SIDE,0);
       break;
     case 2:
-      m_player->setPos(BLOCK_SIDE,14 * BLOCK_SIDE);
+      m_player->setPos(0,14 * BLOCK_SIDE);
       break;
     case 3:
       m_player->setPos(14 * BLOCK_SIDE,14 * BLOCK_SIDE);
@@ -89,10 +88,6 @@ void Game::generateBoard()
       break;
       //cry
     }
-    // WallBlock *b = new WallBlock("Wall",500,500,w,pups);
-    // b->setColor(sf::Color::White);
-    // b->
-
 
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++)
     {

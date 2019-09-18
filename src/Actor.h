@@ -1,7 +1,6 @@
 #ifndef ACTORS_INCLUDED
 #define ACTORS_INCLUDED
 
-#include "Position.h"
 #include "rand.h"
 #include "Bomb.h"
 #include "GameObject.h"
@@ -20,7 +19,6 @@ public:
 	// virtual void spawn(); // randomly places actors
 
 private:
-	Position mypos;
 	sf::RectangleShape m_playerShape;
 	sf::Texture m_shapeTexture;
 	sf::RenderWindow &m_window;

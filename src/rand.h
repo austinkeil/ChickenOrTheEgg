@@ -8,5 +8,4 @@
 //Returns a number from 0 to max - 1
 int randInt(int max);
 
-
 #endif

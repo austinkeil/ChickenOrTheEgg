@@ -1,13 +1,11 @@
 #include "GameObject.h"
-#include "Position.h"
 #include <string>
 #include "rand.h"
 
 GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : m_window(w), m_objectShape(sf::Vector2f(size,size)), m_powerUps(pups)
 {
-    objectPos.m_x = x;
-    objectPos.m_y = y;
+	m_objectShape.setPosition(sf::Vector2f(x,y));
 }
 
 sf::Vector2f GameObject::getPos() {
@@ -30,8 +28,6 @@ WallBlock::WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<Ga
 }
 
 void GameObject::setPos(int x, int y) {
-	objectPos.m_x = x;
-	objectPos.m_y = y;
 	m_objectShape.setPosition(sf::Vector2f(x, y));
 }
 void GameObject::drawMe() {

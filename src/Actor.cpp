@@ -5,8 +5,7 @@
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable)
 : m_playerShape(sf::Vector2f(size, size)), m_window(w), m_breakable(breakable), m_unbreakable(unbreakable)
 {
-	mypos.m_x = x;
-	mypos.m_y = y;
+	m_playerShape.setPosition(sf::Vector2f(x, y));
 	(void)m_unbreakable;
 }
 
@@ -87,6 +86,5 @@ void Player :: addhitpoints()
 }
 void Actor::setPos(float x, float y)
 {
-	mypos.m_x = x;
-	mypos.m_y = y;
+	m_playerShape.setPosition(sf::Vector2f(x, y));
 }
