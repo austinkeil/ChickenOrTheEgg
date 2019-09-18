@@ -60,8 +60,27 @@ Player::Player(float x, float y, float size, sf::RenderWindow &w, std::vector<Ga
 {
 	m_power = randInt(3);
 	for(int i = 0; i < 5;i++){
-		Bomb b = Bomb(x,y,PLAYERSIZE,w, breakable);
+		Bomb *b = new Bomb(x,y,PLAYERSIZE,w, breakable);
+		b->setColor(sf::Color::White);
+		b->setTexture("content/tnt.png");
 		m_eggs.push_back(b);
+	}
+}
+void Player::dropEgg()
+{
+	if (m_eggs.size() > 0) {
+		Bomb *b = m_eggs[static_cast<int>(m_eggs.size()) - 1];
+		m_eggs.pop_back();
+		b->drop(getPos());
+		m_droppedEggs.push_back(b);
+	}
+}
+void Player::drawBombs()
+{
+	for (auto &b: m_droppedEggs) {
+		std::cout << "drawing egg at" << b->getPos().x << ", " << b->getPos().y << std::endl;
+		b->drawMe();
+		drawMe();
 	}
 }
 void Player::spawn()
@@ -96,8 +115,8 @@ void Player::dispPower()
 		 //function() to display the power up to the player
 			break;
          case 1:
-		 for(int i =0; i < static_cast<int>(m_eggs.size());i++){
-			m_eggs[i].setRange(m_eggs[i].getRange() + 1);
+		 for(int i = 0; i < static_cast<int>(m_eggs.size());i++){
+			m_eggs[i]->setRange(m_eggs[i]->getRange() + 1);
 		 }
 		 	break;
          case 2:

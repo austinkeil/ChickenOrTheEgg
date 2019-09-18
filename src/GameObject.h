@@ -14,12 +14,15 @@ public:
     sf::Vector2f getPos();
     void setColor(sf::Color color);
     void setTexture(std::string filename);
-
+    sf::RectangleShape getShape();
+    void display();
+protected:
+    sf::RectangleShape m_objectShape;
 private:
     sf::RenderWindow &m_window;
-    sf::RectangleShape m_objectShape;
     sf::Texture m_texture;
     std::vector<GameObject*> &m_powerUps;
+
 };
 
 class WallBlock : public GameObject

@@ -6,7 +6,12 @@ Bomb::Bomb(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*>
 {
 
 }
-
+void Bomb::drop(sf::Vector2f v) {
+    m_objectShape.setPosition(v);
+    cout << "Bomb::drop() at " << v.x
+    << ", " << v.y << endl;
+    drawMe();
+}
 int Bomb::getRange() const{
     return m_range;
 }
