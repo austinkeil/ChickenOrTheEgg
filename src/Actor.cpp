@@ -2,6 +2,7 @@
 #include "rand.h"
 #include "Game.h"
 #include "Bomb.h"
+#include "ExplosionGraphic.h"
 #include "globals.h"
 
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable)
@@ -66,7 +67,7 @@ Player::Player(float x, float y, float size, sf::RenderWindow &w, std::vector<Ga
 : Actor(x, y, size, w, breakable, unbreakable)
 {
 	m_power = randInt(3);
-	for(int i = 0; i < 5;i++){
+	for(int i = 0; i < BOMB_COUNT;i++){
 		Bomb *b = new Bomb(x,y,PLAYERSIZE,w, breakable);
 		b->setColor(sf::Color::White);
 		b->setTexture("content/tnt.png");
@@ -92,7 +93,8 @@ void Player::updateBombs()
 				std::cout << "clearing explosion at " << (*it)->getPos().x << ", " << (*it)->getPos().y << std::endl;
 				it = m_droppedEggs.erase(it);
 			} else {
-				(*it)->drawMe();
+				sf::Vector2f v = (*it)->getPos();
+				explode(v);
 				++it;
 				drawMe();
 			}
@@ -103,7 +105,53 @@ void Player::updateBombs()
 		}
 	}
 }
+void Player::explodeBreakables(sf::Vector2f v){
+	auto it = m_breakable.begin();
+		while (it != m_breakable.end()) {
+			if ((*it)->getPos() == v) {
+				std::cout << "erasing" << std::endl;
+				it = m_breakable.erase(it);
+			} else {
+				++it;
+			}
+		}
+}
+void Player::addGraphic(sf::Vector2f v, std::string filename) {
+	sf::RectangleShape r(sf::Vector2f(BLOCK_SIDE, BLOCK_SIDE));
+	r.setPosition(v);
+	sf::Texture t;
+	if (!t.loadFromFile(filename)) {
+		std::cout << "Failed to load texture from " << filename << std::endl;
+	}
+	r.setTexture(&t);
+	m_playerShape.setTexture(&m_shapeTexture);
+	m_window.draw(r);
+}
 
+void Player::explode(sf::Vector2f v) {
+	sf::Vector2f left = v + sf::Vector2f(-BLOCK_SIDE, 0);
+	sf::Vector2f right = v + sf::Vector2f(BLOCK_SIDE, 0);
+	sf::Vector2f up = v + sf::Vector2f(0, -BLOCK_SIDE);
+	sf::Vector2f down = v + sf::Vector2f(0, BLOCK_SIDE);
+	ExplosionGraphic(v, "content/centerExplosion.png", m_window);
+	if (left.x >= 0) {
+		ExplosionGraphic(left, "content/leftExplosion.png", m_window);
+		explodeBreakables(left);
+	}
+	if (right.x <= BOARD_WIDTH - BLOCK_SIDE) {
+		ExplosionGraphic(right, "content/rightExplosion.png", m_window);
+		explodeBreakables(right);
+	}
+	if (up.y >= 0) {
+		ExplosionGraphic(up, "content/topExplosion.png", m_window);
+		explodeBreakables(up);
+	}
+	if (down.y <= BOARD_HEIGHT - BLOCK_SIDE) {
+		ExplosionGraphic(down, "content/bottomExplosion.png", m_window);
+		explodeBreakables(down);
+	}
+	std::cout << std::endl;
+}
 void Player::spawn()
 {
 int playerSpawn = randInt(4);

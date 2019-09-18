@@ -21,7 +21,6 @@ protected:
     sf::RenderWindow &m_window;
     std::vector<GameObject*> &m_pups;
     std::vector<GameObject*> m_worms;
-
 private:
     sf::Texture m_texture;
 

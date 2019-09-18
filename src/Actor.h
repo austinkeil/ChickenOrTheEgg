@@ -37,6 +37,9 @@ public:
 	virtual void spawn();
 	void dropEgg();
 	void updateBombs();
+	void explode(sf::Vector2f v);
+	void explodeBreakables(sf::Vector2f v);
+	void addGraphic(sf::Vector2f v, std::string filename);
 private:
 	int m_hitpoints;
 	int m_power;

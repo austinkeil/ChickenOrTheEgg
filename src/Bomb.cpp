@@ -31,8 +31,6 @@ int Bomb::getElapsed() const{
 void Bomb::drawMe() {
     if (!m_exploded) {
         m_window.draw(m_objectShape);
-    } else {
-        cout << "drawing explosion" << endl;
     }
 }
 
