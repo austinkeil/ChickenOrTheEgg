@@ -60,7 +60,6 @@ private:
     std::vector<GameObject*> &pups;
     int m_boardWidth;
     int m_blockWidth;
-
 };
 
 #endif // GAME_INCLUDED
