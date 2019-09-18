@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "math.h"
 
+const int PLAYERSIZE = 100;
 const int BOARD_WIDTH  = 1500;
 const int BOARD_HEIGHT = 1500;
 const int BLOCK_COUNT = 15;
@@ -41,6 +42,7 @@ private:
     Player *m_player;
     std::vector<GameObject*> m_unbreakable;
     std::vector<GameObject*> m_breakable;
+    std::vector<GameObject*> &pups;
     int m_boardWidth;
     int m_blockWidth;
 

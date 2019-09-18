@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 
-const int PLAYERSIZE = 100;
 using namespace std;
 
 Game::Game(int width, int height)

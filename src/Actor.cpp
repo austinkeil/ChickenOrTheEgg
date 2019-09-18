@@ -1,5 +1,6 @@
 #include "Actor.h"
 #include "rand.h"
+#include "Game.h"
 
 Actor::Actor(float x, float y, float size, sf::RenderWindow &w)
 : m_playerShape(sf::Vector2f(size, size)), m_window(w)
@@ -42,6 +43,10 @@ void Actor::setTexture(std::string texturePath) {
 Player::Player(float x, float y, float size, sf::RenderWindow &w) : Actor(x, y, size, w)
 {
 	m_power = randInt(3);
+	for(int i = 0; i < 5;i++){
+		Bomb b = Bomb(x,y,PLAYERSIZE,w, );
+		eggs.push_back(b);
+	}
 }
 
 void Player::dispPower()
@@ -50,15 +55,17 @@ void Player::dispPower()
 
      {
          case 0:
-			addhitpoints();
+		 hitpoints++;
+		 //function() to display the power up to the player
 			break;
          case 1:
+		 for(int i =0; i < eggs.size();i++){
+			eggs[i].setRange(eggs[i].getRange() + 1);
+		 }
 		 	break;
-         //increase bomb range: this depends on what the bomb range is orignally (check bomb class) and increase it
          case 2:
-		 	//int myrange = eggs.getRange();
-		 	//eggs.setRange(myrange + 1);
-			 break;
+		 	max_size++;// adds the carrying capacity of bombs + 1
+			break;
 
 		default:
 			break;

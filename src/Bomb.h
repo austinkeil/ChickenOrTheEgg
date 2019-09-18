@@ -5,14 +5,18 @@ class Bomb: public GameObject{
     int range;
     int damage;
     int time;
+
     public:
+    Bomb(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups);
     int getRange() const;//getters
     int getDamage() const;
     int getTime() const;
 
+
     void setRange(int x);//setters
     void setDamage(int x);
     void setTime(int x);
+
 
 };
 
