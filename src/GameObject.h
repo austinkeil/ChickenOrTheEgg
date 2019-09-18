@@ -33,7 +33,7 @@ class DestructWall : public GameObject
 {
     const bool isDestruct = true;
 public:
-DestructWall(std::string name, int x, int y, sf::RenderWindow &w);
+DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups);
 ~DestructWall();
 
 // bool isDestruct() const;
