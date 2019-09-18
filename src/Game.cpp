@@ -1,6 +1,7 @@
 
 #include "Game.h"
 #include "rand.h"
+#include "GameObject.h"
 #include <iostream>
 #include <string>
 
@@ -78,6 +79,19 @@ void Game::drawGameBoardOne()
     default:
       break;
       //cry
+    }
+    for(int i = 0; i < 36; i++)
+    {
+      //WallBlock constructor needs to be implemented !!!!
+      //getUnbreakable()[i] = new WallBlock();
+    }
+
+    for(int i = 1; i < 15; i+=2)
+    {
+      for(int j = 1; j < 15; j+=2)
+      {
+        //getUnbreakable()[i].setPos(i,j);
+      }
     }
 
 
