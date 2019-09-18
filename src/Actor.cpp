@@ -93,6 +93,8 @@ void Player::updateBombs()
 				it = m_droppedEggs.erase(it);
 			} else {
 				(*it)->drawMe();
+				++it;
+				drawMe();
 			}
 		} else {
 			(*it)->drawMe();
