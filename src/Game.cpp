@@ -98,7 +98,7 @@ void Game::generateBoard()
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++)
     {
       //WallBlock constructor needs to be implemented !!!!
-      m_breakable[i] = new WallBlock("Wall",0,0,m_window, m_breakable);
+      m_breakable[i] = new WallBlock(0, 0,PLAYERSIZE,m_window, m_breakable);
       m_breakable[i]->setColor(sf::Color::White);
     }
 

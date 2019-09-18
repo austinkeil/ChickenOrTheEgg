@@ -3,20 +3,19 @@
 #include <string>
 #include "rand.h"
 
-GameObject::GameObject(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: m_window(w), m_objectShape(sf::Vector2f(x,y)), m_powerUps(pups)
+GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: m_window(w), m_objectShape(sf::Vector2f(size,size)), m_powerUps(pups)
 {
     objectPos.m_x = x;
     objectPos.m_y = y;
-	m_name = name;
 }
 
 void GameObject::setColor(sf::Color color) {
 	m_objectShape.setFillColor(color);
 }
 
-WallBlock::WallBlock(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: GameObject(name,x,y,w,pups) {}
+WallBlock::WallBlock(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: GameObject(x,y, size, w,pups) {}
 
 void GameObject::setPos(int x, int y) {
 	objectPos.m_x = x;
@@ -28,11 +27,8 @@ void GameObject::drawMe() {
 	std::cout << "draw me at " << m_objectShape.getPosition().x << ", " << m_objectShape.getPosition().y << std::endl;
 	m_window.draw(m_objectShape);
 }
-std::string GameObject::getName() {
-	return m_name;
-}
-DestructWall::DestructWall(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: GameObject(name,x,y,w, pups){
+DestructWall::DestructWall(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+: GameObject(x,y, size, w, pups){
 }
 DestructWall::~DestructWall()
 {
@@ -52,5 +48,5 @@ DestructWall::~DestructWall()
 
 ////////////////
 
- Worm::Worm(std::string name, int x, int y, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-    :GameObject(name, x, y, w, pups) {}
+ Worm::Worm(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
+    :GameObject(x, y, size, w, pups) {}

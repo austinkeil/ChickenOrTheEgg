@@ -5,12 +5,13 @@
 #include <vector>
 #include "Actor.h"
 #include "GameObject.h"
+#include "math.h"
 
 const int BOARD_WIDTH  = 1500;
 const int BOARD_HEIGHT = 1500;
 const int BLOCK_COUNT = 15;
 const int BLOCK_SIDE = BOARD_HEIGHT/BLOCK_COUNT;
-const int NUMBER_OF_BLOCKS = 2*BLOCK_COUNT;
+const int NUMBER_OF_BLOCKS = pow((BLOCK_COUNT)/2, 2);
 
 class Game
 {
