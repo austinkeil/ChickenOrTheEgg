@@ -173,11 +173,11 @@ void Player::explodeBreakables(sf::Vector2f v){
 		}
 }
 void Player::explodeZombies(sf::Vector2f v) {
-	auto it = m_breakable.begin();
-		while (it != m_breakable.end()) {
+	auto it = m_enemies.begin();
+		while (it != m_enemies.end()) {
 			if ((*it)->getPos() == v) {
 				std::cout << "erasing" << std::endl;
-				it = m_breakable.erase(it);
+				it = m_enemies.erase(it);
 			} else {
 				++it;
 			}
@@ -209,14 +209,18 @@ void Player::explode(sf::Vector2f v) {
 	if (right.x <= BOARD_WIDTH - BLOCK_SIDE) {
 		ExplosionGraphic(right, "content/rightExplosion.png", m_window);
 		explodeBreakables(right);
+		explodeZombies(right);
+
 	}
 	if (up.y >= 0) {
 		ExplosionGraphic(up, "content/topExplosion.png", m_window);
 		explodeBreakables(up);
+		explodeZombies(up);
 	}
 	if (down.y <= BOARD_HEIGHT - BLOCK_SIDE) {
 		ExplosionGraphic(down, "content/bottomExplosion.png", m_window);
 		explodeBreakables(down);
+		explodeZombies(down);
 	}
 	std::cout << std::endl;
 }
