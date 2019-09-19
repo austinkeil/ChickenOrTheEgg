@@ -17,7 +17,8 @@ public:
 	sf::Vector2f getPos();
 	void drawMe();
 	virtual void spawn();
-	// virtual void spawn(); // randomly places actors
+
+private:
 	sf::RectangleShape m_playerShape;
 	sf::Texture m_shapeTexture;
 	sf::RenderWindow &m_window;
@@ -32,12 +33,16 @@ public:
 	void dispPower();
 	void addhitpoints();
 	virtual void spawn();
+	void dropEgg();
+	void drawBombs();
 
 private:
 	int m_hitpoints;
 	int m_power;
 	int m_maxSize;
-	std::vector<Bomb> m_eggs;
+	std::vector<Bomb*> m_eggs;
+	std::vector<Bomb*> m_droppedEggs;
+
 };
 
 #endif //ACTORS_INCLUDED

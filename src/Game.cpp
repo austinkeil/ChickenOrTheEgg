@@ -57,11 +57,16 @@ void Game::play()
         {
             m_player->move(sf::Vector2f(0, -m_blockWidth));
         }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space))
+        {
+          m_player->dropEgg();
+        }
         m_window.clear();
-		m_window.draw(m_player->getShape());
+		    m_window.draw(m_player->getShape());
         drawUnbreakables();
         drawBreakables();
-		m_window.display();
+        m_player->drawBombs();
+		    m_window.display();
 	}
 }
 void Game::drawUnbreakables() {

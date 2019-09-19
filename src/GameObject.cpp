@@ -3,9 +3,12 @@
 #include "rand.h"
 
 GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: m_window(w), m_objectShape(sf::Vector2f(size,size)), m_powerUps(pups)
+: m_objectShape(sf::Vector2f(size,size)), m_window(w), m_powerUps(pups)
 {
 	m_objectShape.setPosition(sf::Vector2f(x,y));
+}
+void GameObject::display(){
+	m_window.display();
 }
 
 sf::Vector2f GameObject::getPos() {
