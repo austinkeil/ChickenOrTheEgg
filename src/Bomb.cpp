@@ -4,6 +4,8 @@ using namespace std;
 Bomb::Bomb(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
 : GameObject(x,y,size,w,pups)
 {
+    //Bomb *b = new Bomb()
+
 
 }
 void Bomb::drop(sf::Vector2f v) {

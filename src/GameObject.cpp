@@ -1,9 +1,10 @@
 #include "GameObject.h"
 #include <string>
 #include "rand.h"
+#include "globals.h"
 
 GameObject::GameObject(int x, int y, int size, sf::RenderWindow &w, std::vector<GameObject*> &pups)
-: m_objectShape(sf::Vector2f(size,size)), m_window(w), m_powerUps(pups)
+: m_objectShape(sf::Vector2f(size,size)), m_window(w), m_pups(pups)
 {
 	m_objectShape.setPosition(sf::Vector2f(x,y));
 }
@@ -48,13 +49,12 @@ DestructWall::~DestructWall()
     int power_up = randInt(3) ;
     if(power_up==0)
     {
+		Worm *w = new Worm(m_objectShape.getPosition().x, m_objectShape.getPosition().y, BLOCK_SIDE, m_window, m_pups );
+		m_worms.push_back(w);
+
 
         //make the power up appear
 
-    }
-    else
-    {
-        //do nothing
     }
 
 }
