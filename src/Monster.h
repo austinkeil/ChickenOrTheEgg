@@ -9,7 +9,7 @@ public:
 	Monster(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
 	~Monster();
 
-	void move();
+	void moveRandom();
 private:
 	int m_hitpoints;
 	int m_power;
