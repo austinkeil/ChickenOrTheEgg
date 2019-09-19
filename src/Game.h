@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "math.h"
 #include "globals.h"
+#include "Monster.h"
 
 class Game
 {
@@ -17,6 +18,8 @@ public:
     void generateUnbreakables();
     void drawUnbreakables();
     void drawBreakables();
+    void generateMonsters();
+    void drawMonsters();
 
     // ----- Getters -----
     std::vector<GameObject*> &getBreakable();
@@ -32,13 +35,15 @@ public:
     void setPlayer(Player* player);
 
 
-private:
+protected:
+
     int m_level;
     sf::RenderWindow m_window;
     Player *m_player;
     std::vector<GameObject*> m_unbreakable;
     std::vector<GameObject*> m_breakable;
     std::vector<GameObject*> m_pups;
+    std::vector<Monster*> m_enemies;
     int m_boardWidth;
     int m_blockWidth;
 };

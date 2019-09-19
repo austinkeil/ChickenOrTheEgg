@@ -10,6 +10,11 @@ Monster :: Monster(float x, float y, float size, sf::RenderWindow &w, std::vecto
 	m_power = 1;
 }
 
+void Monster::setPos(float x, float y)
+{
+	m_playerShape.setPosition(sf::Vector2f(x, y));
+}
+
 void Monster::moveRandom()
 {
 	sf::Vector2f v;

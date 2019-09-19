@@ -24,6 +24,7 @@ Game::Game(int width, int height)
     m_player->spawn();
     generateUnbreakables();
     generateBreakables();
+    generateMonsters();
 }
 
 void Game::play()
@@ -65,6 +66,7 @@ void Game::play()
 		    m_window.draw(m_player->getShape());
         drawUnbreakables();
         drawBreakables();
+        drawMonsters();
         m_player->updateBombs();
 		    m_window.display();
 	}
@@ -79,6 +81,47 @@ void Game::drawBreakables() {
     for (int i = 0; i < NUMBER_OF_BLOCKS; i++) {
         m_breakable[i]->drawMe();
     }
+}
+
+void Game::generateMonsters()
+{
+  m_enemies.resize(5);
+  for (int i = 0; i < 5; i++)
+  {
+    m_enemies[i] = new Monster(0,0,PLAYERSIZE,m_window,m_breakable,m_unbreakable);
+    m_enemies[i]->setTexture("content/bbZombie.png");
+  }
+    for (int j = 0; j < 5; j++) {
+        bool valid = false;
+        bool taken = false;
+        while (!valid) {
+            sf::Vector2f v(randInt(BLOCK_COUNT-1)*100, randInt(BLOCK_COUNT-1)*100);
+            for (int i = 0; i < 5; i++) {
+                sf::Vector2f b(m_enemies[i]->getPos());
+                sf::Vector2f u(m_enemies[i]->getPos());
+
+                if (b == v || u == v) {
+                    taken = true;
+                    break;
+                }
+            }
+            if (taken) {
+                break;
+            }
+
+            m_enemies[j]->setPos(v.x,v.y);
+            m_enemies[j]->drawMe();
+        }
+    }
+
+}
+
+void Game::drawMonsters()
+{
+  for(int i = 0; i < 5; i++)
+  {
+    m_enemies[i]->drawMe();
+  }
 }
 
 void Game::generateBreakables()
