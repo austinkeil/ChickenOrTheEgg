@@ -33,7 +33,6 @@ void Bomb::drawMe() {
         m_window.draw(m_objectShape);
     } else {
         cout << "drawing explosion" << endl;
-
     }
 }
 
