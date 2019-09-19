@@ -14,19 +14,19 @@ void Monster::move()
 	{
 	case 0:
 		v.x = 0;
-		v.y = 1;
+		v.y = BLOCK_SIDE;
 		break;
 	case 1:
-		v.x = 1;
+		v.x = BLOCK_SIDE;
 		v.y = 0;
 		break;
 	case 2:
-		v.x = -1;
+		v.x = -1 * BLOCK_SIDE;
 		v.y = 0;
 		break;
 	case 3:
 		v.x = 0;
-		v.y = -1;
+		v.y = -1 * BLOCK_SIDE;
 		break;
 	default:
 		break;
