@@ -93,22 +93,20 @@ void Game::generateMonsters()
   }
     for (int j = 0; j < 5; j++) {
         bool valid = false;
-        bool taken = false;
         while (!valid) {
-            sf::Vector2f v(randInt(BLOCK_COUNT-1)*100, randInt(BLOCK_COUNT-1)*100);
-            for (int i = 0; i < 5; i++) {
-                sf::Vector2f b(m_enemies[i]->getPos());
-                sf::Vector2f u(m_enemies[i]->getPos());
+            sf::Vector2f v((randInt(BLOCK_COUNT - 1) * 100), randInt(BLOCK_COUNT - 1) * 100);
+         //   sf::Vector2f v(randInt(BLOCK_COUNT-1)*100, randInt(BLOCK_COUNT-1)*100);
+            for (int i = 0; i < BLOCK_COUNT; i++) {
+                sf::Vector2f b(m_breakable[i]->getPos());
+                sf::Vector2f u(m_unbreakable[i]->getPos());
 
-                if (b == v || u == v) {
-                    taken = true;
-                    break;
+                if(b != v && u != v)
+                {
+                  valid = true;
                 }
-            }
-            if (taken) {
-                break;
-            }
 
+
+            }
             m_enemies[j]->setPos(v.x,v.y);
             m_enemies[j]->drawMe();
         }
