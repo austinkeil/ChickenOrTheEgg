@@ -9,7 +9,7 @@ class Actor
 {
 public:
 	Actor(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable);
-	void move(sf::Vector2f v);
+	virtual void move(sf::Vector2f v);
 	void setColor(sf::Color color);
 	void setTexture(std::string texturePath);
 	sf::RectangleShape &getShape();
@@ -18,8 +18,6 @@ public:
 	void drawMe();
 	virtual void spawn();
 	// virtual void spawn(); // randomly places actors
-
-private:
 	sf::RectangleShape m_playerShape;
 	sf::Texture m_shapeTexture;
 	sf::RenderWindow &m_window;
