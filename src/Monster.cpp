@@ -4,7 +4,11 @@
 
 Monster :: Monster(float x, float y, float size, sf::RenderWindow &w, std::vector<GameObject*> &breakable, std::vector<GameObject*> &unbreakable)
 : Actor(x, y, size, w, breakable, unbreakable)
-{}
+{
+	m_hitpoints = 1;
+	m_pointValue = 97;
+	m_power = 1;
+}
 
 void Monster::move()
 {
@@ -31,6 +35,7 @@ void Monster::move()
 	default:
 		break;
 	}
+
 	sf::Vector2f newPos = m_playerShape.getPosition() + v;
 	bool validMove = true;
 	if (newPos.x >= 0 && newPos.x <= BOARD_WIDTH - BLOCK_SIDE && newPos.y >= 0 && newPos.y <= BOARD_WIDTH - BLOCK_SIDE)
